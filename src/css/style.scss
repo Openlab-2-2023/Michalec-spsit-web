@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --theme-bg-color: rgba(16 18 27 / 40%);
+  --border-color: rgba(113 119 144 / 25%);
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--body-font);
+  background-image: url(https://wallpapershome.com/images/wallpapers/macos-big-sur-1280x720-dark-wwdc-2020-22655.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px;
+  height: 100vh;
+}
+
+.video-bg {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.main {
+  background-color: var(--theme-bg-color);
+  height: calc(100vh - 10%);
+  width: calc(100vw - 10%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  border-radius: 14px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-size: 15px;
+  font-weight: 500;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #fff;
+      margin-left: 1rem;
+    }
+
+    .color-circle {
+      width: 15px;
+      height: 15px;
+      background-color: #f96057;
+      border-radius: 50%;
+      box-shadow: -24px 0 0 0 #f8ce52, -48px 0 0 0 #5fcf65;
+      flex-shrink: 0;
+    }
+  }
+}
