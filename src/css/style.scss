@@ -4,6 +4,9 @@
   --theme-bg-color: rgba(16 18 27 / 40%);
   --border-color: rgba(113 119 144 / 25%);
   --content-button-color: #3a6df0;
+  --body-font: "Poppins", sans-serif;
+  --theme-color: #f9fafb;
+  --hover-menu-bg: rgba(12 15 25 / 30%);
 }
 
 html {
@@ -22,6 +25,7 @@ body {
   flex-direction: column;
   margin: 0px;
   height: 100vh;
+  font-family: var(--body-font);
 }
 
 .video-bg {
@@ -60,8 +64,8 @@ body {
     margin: 0 10px 0 10px;
 
     .title {
-      font-size: 15px;
-      font-weight: 300;
+      font-size: 17px;
+      font-weight: 500;
       color: #fff;
       margin-left: 1rem;
     }
@@ -73,6 +77,53 @@ body {
       border-radius: 50%;
       box-shadow: 24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65;
       flex-shrink: 0;
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+
+    .sidebar {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: fit-content;
+
+      .top-sidebar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border-bottom: 1px solid var(--border-color);
+        margin: 0 20px;
+        overflow: auto;
+        flex-shrink: 0;
+        height: fit-content;
+        width: calc(100% - 40px);
+
+        a {
+          text-decoration: none;
+          color: var(--theme-color);
+          display: flex;
+          align-items: center;
+          font-weight: 400;
+          padding: 10px;
+          font-size: 14px;
+          border-radius: 6px;
+          transition: 0.3s;
+          width: fit-content;
+
+          &:hover {
+            background-color: var(--hover-menu-bg);
+          }
+        }
+
+        svg {
+          width: 16px;
+          margin-right: 8px;
+        }
+      }
     }
   }
 }
