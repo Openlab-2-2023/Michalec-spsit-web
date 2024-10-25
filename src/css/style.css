@@ -2,6 +2,7 @@
 :root {
   --theme-bg-color: rgba(16 18 27 / 40%);
   --border-color: rgba(113 119 144 / 25%);
+  --content-button-color: #3a6df0;
 }
 
 html {
@@ -18,7 +19,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  margin: 0px;
   height: 100vh;
 }
 
@@ -55,9 +56,10 @@ body {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--border-color);
+  margin: 0 10px 0 10px;
 }
 .main .header .title {
-  font-size: 1.5rem;
+  font-size: 15px;
   font-weight: 300;
   color: #fff;
   margin-left: 1rem;
@@ -67,11 +69,22 @@ body {
   height: 15px;
   background-color: #f96057;
   border-radius: 50%;
-  box-shadow: -24px 0 0 0 #f8ce52, -48px 0 0 0 #5fcf65;
+  box-shadow: 24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65;
   flex-shrink: 0;
 }
-@media screen and (max-width: 945px) {
-  .main .header .color-circle {
-    display: none;
-  }
+
+.content-button {
+  background-color: var(--content-button-color);
+  border: none;
+  padding: 8px 26px;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.content-button:hover {
+  background-color: #1e59f1;
 }/*# sourceMappingURL=style.css.map */
