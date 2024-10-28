@@ -1,4 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/poppins/v15/pxiEyp8kv8JHgFVrJJnecmNE.woff2") format("woff2");
+}
 :root {
   --theme-bg-color: rgba(16 18 27 / 40%);
   --border-color: rgba(113 119 144 / 25%);
@@ -130,14 +135,13 @@ body {
   flex-direction: column;
   width: -moz-fit-content;
   width: fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 100%;
   margin: 10px 0;
 }
 .main .wrapper .sidebar .left-sidebar {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   border-right: 1px solid var(--border-color);
   padding: 0 20px;
   overflow: auto;
@@ -168,6 +172,16 @@ body {
 .main .wrapper .sidebar .left-sidebar svg {
   width: 16px;
   margin-right: 8px;
+}
+.main .wrapper .page {
+  display: flex;
+  height: 100%;
+}
+.main .wrapper .page .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .content-button {
