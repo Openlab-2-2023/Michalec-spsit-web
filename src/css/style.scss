@@ -7,6 +7,7 @@
   --body-font: "Poppins", sans-serif;
   --theme-color: #f9fafb;
   --hover-menu-bg: rgba(12 15 25 / 30%);
+  --inactive-color: rgb(113 119 144 / 78%);
 }
 
 html {
@@ -60,7 +61,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 3px solid var(--border-color);
     margin: 0 10px 0 10px;
 
     .title {
@@ -84,14 +85,15 @@ body {
     display: flex;
     flex-grow: 1;
     overflow: hidden;
+    flex-direction: column;
 
-    .sidebar {
+    .pagebar {
       display: flex;
       justify-content: center;
       width: 100%;
       height: fit-content;
 
-      .top-sidebar {
+      .top-pagebar {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -104,7 +106,7 @@ body {
 
         a {
           text-decoration: none;
-          color: var(--theme-color);
+          color: var(--inactive-color);
           display: flex;
           align-items: center;
           font-weight: 400;
@@ -114,11 +116,67 @@ body {
           transition: 0.3s;
           width: fit-content;
 
+          &.is-active,
           &:hover {
-            background-color: var(--hover-menu-bg);
+            color: var(--theme-color);
+            // background-color: var(--hover-menu-bg);
+            border-bottom: 2px solid var(--theme-color);
+            border-radius: 0px;
           }
         }
 
+        svg {
+          width: 16px;
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .sidebar {
+      display: flex;
+      justify-content: left;
+      flex-direction: column;
+      width: fit-content;
+      height: fit-content;
+      margin: 10px 0;
+      //border-right: 1px solid var(--border-color);
+
+      .left-sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-right: 1px solid var(--border-color);
+        padding: 0 20px;
+        overflow: auto;
+        flex-shrink: 0;
+        width: fit-content;
+        height: 100%;
+
+        .side-wrapper {
+          width: 100%;
+        }
+  
+        a {
+          text-decoration: none;
+          color: var(--inactive-color);
+          display: flex;
+          align-items: center;
+          font-weight: 400;
+          padding: 10px;
+          font-size: 14px;
+          border-radius: 6px;
+          transition: 0.3s;
+          width: 90%;
+  
+          &.is-active,
+          &:hover {
+            color: var(--theme-color);
+            background-color: var(--hover-menu-bg);
+            // border-bottom: 2px solid var(--theme-color);
+            // border-radius: 0px;
+          }
+        }
+  
         svg {
           width: 16px;
           margin-right: 8px;
