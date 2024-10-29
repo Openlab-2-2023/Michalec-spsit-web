@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPSIT KNM</title>
     <link rel="stylesheet" href="src/css/style.css">
+    <script src="src/js/index.js"></script>
 </head>
 
 <body>
@@ -30,33 +31,33 @@
         <div class="wrapper">
             <div class="pagebar">
                 <div class="top-pagebar">
-                    <div class="side-wrapper"><a class="is-active" href="#">Domov</a></div>
-                    <div class="side-wrapper"><a href="#">Aktuality</a></div>
-                    <div class="side-wrapper"><a href="#">Študenti</a></div>
-                    <div class="side-wrapper"><a href="#">Uchádzači</a></div>
-                    <div class="side-wrapper"><a href="#">Školský internát</a></div>
-                    <div class="side-wrapper"><a href="#">Zamestnanci</a></div>
-                    <div class="side-wrapper"><a href="#">O škole</a></div>
+                    <div class="side-wrapper"><a class="is-active" href="">Domov</a></div>
+                    <div class="side-wrapper"><a href="">Aktuality</a></div>
+                    <div class="side-wrapper"><a href="">Študenti</a></div>
+                    <div class="side-wrapper"><a href="">Uchádzači</a></div>
+                    <div class="side-wrapper"><a href="">Školský internát</a></div>
+                    <div class="side-wrapper"><a href="">Zamestnanci</a></div>
+                    <!-- <div class="side-wrapper"><a href="#">O škole</a></div> -->
                 </div>
             </div>
             <div class="page">
-                <div class="sidebar">
-                    <div class="left-sidebar">
-                        <div class="side-wrapper"><a href="#" class="is-active">O nás</a></div>
-                        <div class="side-wrapper"><a href="#">Fotogaléria</a></div>
-                        <div class="side-wrapper"><a href="#">Centrum odborného vzdelávania</a></div>
-                        <div class="side-wrapper"><a href="#">Regionálne centrum podpory učiteľov</a></div>
-                        <div class="side-wrapper"><a href="#">Blogy</a></div>
-                        <div class="side-wrapper"><a href="#">Pošta</a></div>
-                    </div>
-                </div>
+                <iframe src="src/html/Home/sidebar.html" frameborder="0" id="iSidebar"></iframe>
                 <div class="content">
-                    <img src="img/1.jpg" alt="1">
+                    <iframe src="src/html/Home/about.html" frameborder="0" id="iContent"></iframe>
                 </div>
             </div>
         </div>
     </div>
-    <script src="src/js/index.js"></script>
-</body>
 
+    <script>
+        window.addEventListener('message', function(event) {
+          // Ensure the message is coming from the expected origin
+        if (event.origin === window.location.origin) {
+            const newSrc = event.data;
+            const contentIframe = document.getElementById('iContent');
+            contentIframe.src = newSrc;
+        }
+        });
+    </script>
+</body>
 </html>

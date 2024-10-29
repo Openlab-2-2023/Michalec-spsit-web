@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body style="width: fit-content;">
+    <div class="sidebar">
+        <div class="left-sidebar">
+            <div class="side-wrapper"><a href="" data-src="src/html/Home/about.html" class="is-active">O nás</a></div>
+            <div class="side-wrapper"><a href="" data-src="">Foto-galéria</a></div>
+            <div class="side-wrapper"><a href="" data-src="">Centrum odborného vzdelávania</a></div>
+            <div class="side-wrapper"><a href="" data-src="">Regionálne centrum podpory učiteľov</a></div>
+            <div class="side-wrapper"><a href="" data-src="">Blogy</a></div>
+            <div class="side-wrapper"><a href="" data-src="">Pošta</a></div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[data-src]').forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementsByClassName('is-active')[0].classList.remove('is-active');
+            link.classList.add('is-active');
+            const newSrc = link.getAttribute('data-src');
+            window.parent.postMessage(newSrc, window.location.origin);
+            });
+        });
+    </script>
+</body>
+</html>
