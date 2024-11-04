@@ -63,8 +63,28 @@ function setupTypewriter(t) {
     };
 }
 
-var typer = document.getElementById('title2').getElementsByTagName('h1')[0];
+// var typer = document.getElementById('title2').getElementsByTagName('h1')[0];
 
-typewriter = setupTypewriter(typer);
+// typewriter = setupTypewriter(typer);
 
-typewriter.type();
+// typewriter.type();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('.side-wrapper a');
+    const contents = document.querySelectorAll('.content > div');
+
+    links.forEach(link => {
+        link.addEventListener('click', function() {
+            // Remove active class from all links
+            links.forEach(link => link.classList.remove('is-active'));
+            // Add active class to the clicked link
+            this.classList.add('is-active');
+
+            // Hide all content sections
+            contents.forEach(content => content.style.display = 'none');
+            // Show the corresponding content section
+            const contentId = this.id.replace('link-', 'content-');
+            document.getElementById(contentId).style.display = 'block';
+        });
+    });
+});
