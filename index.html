@@ -44,49 +44,89 @@
         <div class="wrapper">
             <div class="pagebar">
                 <div class="top-pagebar">
-                    <div class="side-wrapper"><a class="is-active" href="">Domov</a></div>
-                    <div class="side-wrapper"><a href="">Aktuality</a></div>
-                    <div class="side-wrapper"><a href="">Študenti</a></div>
-                    <div class="side-wrapper"><a href="">Uchádzači</a></div>
-                    <div class="side-wrapper"><a href="">Školský internát</a></div>
-                    <div class="side-wrapper"><a href="">Zamestnanci</a></div>
+                    <div class="side-wrapper"><a id="link-home" class="is-active" href="">Domov</a></div>
+                    <div class="side-wrapper"><a id="link-news" href="">Aktuality</a></div>
+                    <div class="side-wrapper"><a id="link-students" href="">Študenti</a></div>
+                    <div class="side-wrapper"><a id="link-applicants" href="">Uchádzači</a></div>
+                    <div class="side-wrapper"><a id="link-internat" href="">Školský internát</a></div>
+                    <div class="side-wrapper"><a id="link-staff" href="">Zamestnanci</a></div>
                     <!-- <div class="side-wrapper"><a href="#">O škole</a></div> -->
                 </div>
             </div>
             <div class="page">
                 <!-- <iframe src="src/html/Home/sidebar.html" frameborder="0" id="iSidebar"></iframe> -->
-                <div class="sidebar">
-                    <ul class="left-sidebar">
-                        <li class="side-wrapper"><a id="link-about" class="is-active">O nás</a></li>
-                        <li class="side-wrapper"><a id="link-gallery">Foto-galéria</a></li>
-                        <li class="side-wrapper"><a id="link-education">Centrum odborného vzdelávania</a></li>
-                        <li class="side-wrapper"><a id="link-support" href="https://www.rcpukysuce.sk/">Regionálne centrum podpory učiteľov</a></li>
-                        <li class="side-wrapper"><a id="link-mail" href="https://webmail.spsknm.sk/SOGo/">Pošta</a></li>
-                    </ul>
+                <div id="page-home">
+                    <div class="sidebar">
+                        <ul class="left-sidebar">
+                            <li class="side-wrapper"><a id="link-home" class="is-active">O nás</a></li>
+                            <li class="side-wrapper"><a id="link-gallery">Foto-galéria</a></li>
+                            <li class="side-wrapper"><a id="link-education">Centrum odborného vzdelávania</a></li>
+                            <li class="side-wrapper"><a id="link-support" href="https://www.rcpukysuce.sk/">Regionálne centrum podpory učiteľov</a></li>
+                            <li class="side-wrapper"><a id="link-mail" href="https://webmail.spsknm.sk/SOGo/">Pošta</a></li>
+                        </ul>
+                    </div>
+                    <div class="content">
+                        <div id="content-home">
+                            <img src="img/1.jpg" alt="1">
+                            <p><b>Vítame Vás na www stránke Strednej priemyselnej školy informačných technológií, Nábrežná 1325 v Kysuckom Novom Meste. Na stránke poskytujeme všetky potrebné informácie týkajúce sa života na škole.</b></p>
+                            <p>Absolventi našej školy majú veľmi široké možnosti uplatnenia sa v praxi, vďaka tomu, že počas štúdia získajú vedomosti a zručnosti vo svojom odbore i v práci s výpočtovou technikou. </p>
+                        </div>
+                        <div id="content-gallery" style="display: none;">
+                            <h1>Foto-galéria</h1>
+                            <!-- Add gallery content here -->
+                        </div>
+                        <div id="content-education" style="display: none;">
+                            <h1>Centrum odborného vzdelávania</h1>
+                            <!-- Add education content here -->
+                        </div>
+                        <div id="content-support" style="display: none;">
+                            <h1>Regionálne centrum podpory učiteľov</h1>
+                            <!-- Add support content here -->
+                        </div>
+                        <div id="content-mail" style="display: none;">
+                            <h1>Pošta</h1>
+                            <!-- Add mail content here -->
+                        </div>
+                    </div>
                 </div>
-                <div class="content">
-                    <div id="content-about">
-                        <img src="img/1.jpg" alt="1">
-                        <p><b>Vítame Vás na www stránke Strednej priemyselnej školy informačných technológií, Nábrežná 1325 v Kysuckom Novom Meste. Na stránke poskytujeme všetky potrebné informácie týkajúce sa života na škole.</b></p>
-                        <p>Absolventi našej školy majú veľmi široké možnosti uplatnenia sa v praxi, vďaka tomu, že počas štúdia získajú vedomosti a zručnosti vo svojom odbore i v práci s výpočtovou technikou. </p>
+                <div id="page-news" style="display: none;">
+                    <div class="sidebar">
+                        <ul class="left-sidebar">
+                            <li class="side-wrapper"><a id="link-news" class="is-active">O nás</a></li>
+                            <li class="side-wrapper"><a id="link-gallery">Foto-galéria</a></li>
+                            <li class="side-wrapper"><a id="link-education">Centrum odborného vzdelávania</a></li>
+                            <li class="side-wrapper"><a id="link-support" href="https://www.rcpukysuce.sk/">Regionálne centrum podpory učiteľov</a></li>
+                            <li class="side-wrapper"><a id="link-mail" href="https://webmail.spsknm.sk/SOGo/">Pošta</a></li>
+                        </ul>
                     </div>
-                    <div id="content-gallery" style="display: none;">
-                        <h1>Foto-galéria</h1>
-                        <!-- Add gallery content here -->
-                    </div>
-                    <div id="content-education" style="display: none;">
-                        <h1>Centrum odborného vzdelávania</h1>
-                        <!-- Add education content here -->
-                    </div>
-                    <div id="content-support" style="display: none;">
-                        <h1>Regionálne centrum podpory učiteľov</h1>
-                        <!-- Add support content here -->
-                    </div>
-                    <div id="content-mail" style="display: none;">
-                        <h1>Pošta</h1>
-                        <!-- Add mail content here -->
+                    <div class="content">
+                        <div id="content-news">
+                            <img src="img/1.jpg" alt="1">
+                            <p><b>Vítame Vás na www stránke Strednej priemyselnej školy informačných technológií, Nábrežná 1325 v Kysuckom Novom Meste. Na stránke poskytujeme všetky potrebné informácie týkajúce sa života na škole.</b></p>
+                            <p>Absolventi našej školy majú veľmi široké možnosti uplatnenia sa v praxi, vďaka tomu, že počas štúdia získajú vedomosti a zručnosti vo svojom odbore i v práci s výpočtovou technikou. </p>
+                        </div>
+                        <div id="content-gallery" style="display: none;">
+                            <h1>Foto-galéria</h1>
+                            <!-- Add gallery content here -->
+                        </div>
+                        <div id="content-education" style="display: none;">
+                            <h1>Centrum odborného vzdelávania</h1>
+                            <!-- Add education content here -->
+                        </div>
+                        <div id="content-support" style="display: none;">
+                            <h1>Regionálne centrum podpory učiteľov</h1>
+                            <!-- Add support content here -->
+                        </div>
+                        <div id="content-mail" style="display: none;">
+                            <h1>Pošta</h1>
+                            <!-- Add mail content here -->
+                        </div>
                     </div>
                 </div>
+                <div id="page-students" style="display: none;"></div>
+                <div id="page-application" style="display: none;"></div>
+                <div id="page-internat" style="display: none;"></div>
+                <div id="page-staff" style="display: none;"></div>
             </div>
         </div>
     </div>

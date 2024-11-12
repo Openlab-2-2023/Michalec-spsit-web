@@ -198,21 +198,26 @@ body.light-mode .video-bg:before {
       display: flex;
       height: 100%;
 
-      .content {
+      [id^="page-"] {
         display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: 100%;
-        flex-direction: column;
-        padding: 1% 5%;
-
-        img {
-          border-radius: 25px;
+        height: 100%;
+        
+        .content {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+          flex-direction: column;
+          padding: 1% 5%;
+  
+          img {
+            border-radius: 25px;
+          }
+  
+          p {
+            color: var(--theme-color);
+          };
         }
-
-        p {
-          color: var(--theme-color);
-        };
       }
     }
   }

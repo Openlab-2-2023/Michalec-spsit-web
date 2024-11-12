@@ -187,7 +187,11 @@ body.light-mode .video-bg:before {
   display: flex;
   height: 100%;
 }
-.main .wrapper .page .content {
+.main .wrapper .page [id^=page-] {
+  display: flex;
+  height: 100%;
+}
+.main .wrapper .page [id^=page-] .content {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -195,10 +199,10 @@ body.light-mode .video-bg:before {
   flex-direction: column;
   padding: 1% 5%;
 }
-.main .wrapper .page .content img {
+.main .wrapper .page [id^=page-] .content img {
   border-radius: 25px;
 }
-.main .wrapper .page .content p {
+.main .wrapper .page [id^=page-] .content p {
   color: var(--theme-color);
 }
 

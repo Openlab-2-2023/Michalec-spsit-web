@@ -70,6 +70,31 @@ function setupTypewriter(t) {
 // typewriter.type();
 
 document.addEventListener('DOMContentLoaded', function() {
+    const top_pagebar = document.querySelectorAll('.top-pagebar a');
+    const pages = document.querySelectorAll('.page > div[id^="page-"]');
+
+    top_pagebar.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        // Remove 'is-active' class from all links
+        links.forEach(link => link.classList.remove('is-active'));
+
+        // Add 'is-active' class to the clicked link
+        this.classList.add('is-active');
+
+        // Hide all page sections
+        pages.forEach(page => page.style.display = 'none');
+
+        // Show the corresponding page section
+        const targerElement = document.getElementById(this.id.replace('link-', 'page-'));
+        console.log(this.id.replace('link-', 'page-'))
+        targerElement.getElementsByClassName('content')[0].firstElementChild.style.display = "unset";
+        targerElement.getElementsByClassName('side-wrapper')[0].getElementsByTagName('a')[0].classList.add('is-active');
+        targerElement.style.display = 'flex'
+      });
+    });
+
     const links = document.querySelectorAll('.side-wrapper a');
     const contents = document.querySelectorAll('.content > div');
 
@@ -83,8 +108,15 @@ document.addEventListener('DOMContentLoaded', function() {
             // Hide all content sections
             contents.forEach(content => content.style.display = 'none');
             // Show the corresponding content section
-            const contentId = this.id.replace('link-', 'content-');
-            document.getElementById(contentId).style.display = 'block';
+            const content = document.getElementById(this.id.replace('link-', 'content-'));
+            console.log(this.id.replace('link-', 'content-'))
+
+            if (content) {
+                content.style.display = 'unset';
+            }
+            else {
+                console.log('No content found');
+            }
         });
     });
 });
