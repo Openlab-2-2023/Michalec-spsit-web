@@ -179,7 +179,7 @@ body.light-mode .video-bg:before {
           transition: 0.3s;
           width: fit-content;
 
-          &.is-active,
+          &.is-activeT,
           &:hover {
             color: var(--theme-color);
             // background-color: var(--hover-menu-bg);

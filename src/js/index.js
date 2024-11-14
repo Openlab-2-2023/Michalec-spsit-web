@@ -10,7 +10,7 @@ function setupTypewriter(t) {
         typeSpeed = 100,
         tempTypeSpeed = 0;
 
-    var type = function() {
+    var type = function () {
 
         if (writingTag === true) {
             tag += HTML[cursorPosition];
@@ -69,54 +69,66 @@ function setupTypewriter(t) {
 
 // typewriter.type();
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const top_pagebar = document.querySelectorAll('.top-pagebar a');
     const pages = document.querySelectorAll('.page > div[id^="page-"]');
-
-    top_pagebar.forEach(link => {
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-
-        // Remove 'is-active' class from all links
-        links.forEach(link => link.classList.remove('is-active'));
-
-        // Add 'is-active' class to the clicked link
-        this.classList.add('is-active');
-
-        // Hide all page sections
-        pages.forEach(page => page.style.display = 'none');
-
-        // Show the corresponding page section
-        const targerElement = document.getElementById(this.id.replace('link-', 'page-'));
-        console.log(this.id.replace('link-', 'page-'))
-        targerElement.getElementsByClassName('content')[0].firstElementChild.style.display = "unset";
-        targerElement.getElementsByClassName('side-wrapper')[0].getElementsByTagName('a')[0].classList.add('is-active');
-        targerElement.style.display = 'flex'
-      });
-    });
-
-    const links = document.querySelectorAll('.side-wrapper a');
+    const left_pagebar = document.querySelectorAll('.left-sidebar .side-wrapper a');
     const contents = document.querySelectorAll('.content > div');
 
-    links.forEach(link => {
-        link.addEventListener('click', function() {
+    top_pagebar.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Remove 'is-active' class from all top_pagebar links
+            top_pagebar.forEach(link => link.classList.remove('is-activeT'));
+
+            // Add 'is-active' class to the clicked top_pagebar link
+            this.classList.add('is-activeT');
+
+            // Hide all page sections
+            pages.forEach(page => page.style.display = 'none');
+
+            // Show the corresponding page section
+            const targetElement = document.getElementById(this.id.replace('link-', 'page-'));
+            targetElement.style.display = 'flex';
+            targetElement.lastElementChild.firstElementChild.style.display = 'unset';
+
+            // Set the first element in the left-sidebar as active
+            setFirstElementActive(targetElement);
+        });
+    });
+
+    left_pagebar.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+
             // Remove active class from all links
-            links.forEach(link => link.classList.remove('is-active'));
+            left_pagebar.forEach(link => link.classList.remove('is-active'));
+
             // Add active class to the clicked link
             this.classList.add('is-active');
 
             // Hide all content sections
             contents.forEach(content => content.style.display = 'none');
+
             // Show the corresponding content section
             const content = document.getElementById(this.id.replace('link-', 'content-'));
-            console.log(this.id.replace('link-', 'content-'))
-
             if (content) {
                 content.style.display = 'unset';
-            }
-            else {
+            } else {
                 console.log('No content found');
             }
         });
     });
+
+    // Function to set the first element in left-sidebar as active
+    function setFirstElementActive(targetElement) {
+        const firstLink = targetElement.querySelector('.left-sidebar .side-wrapper a');
+
+        // Remove active class from all links
+        left_pagebar.forEach(link => link.classList.remove('is-active'));
+        //left_pagebar[0].classList.add('is-active');
+        // Add active class to the first link
+        firstLink.classList.add('is-active');
+    }
 });

@@ -52,7 +52,7 @@
         <div class="pagebar">
           <div class="top-pagebar">
             <div class="side-wrapper">
-              <a id="link-home" class="is-active" href="">Domov</a>
+              <a id="link-home" class="is-activeT" href="">Domov</a>
             </div>
             <div class="side-wrapper">
               <a id="link-news" href="">Aktuality</a>
@@ -229,15 +229,6 @@
 
       toggleButton.addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
-      });
-
-      window.addEventListener("message", function (event) {
-        // Ensure the message is coming from the expected origin
-        if (event.origin === window.location.origin) {
-          const newSrc = event.data;
-          const contentIframe = document.getElementById("iContent");
-          contentIframe.src = newSrc;
-        }
       });
     </script>
   </body>

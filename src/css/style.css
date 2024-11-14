@@ -174,7 +174,7 @@ body.light-mode .video-bg:before {
   width: -moz-fit-content;
   width: fit-content;
 }
-.main .wrapper .pagebar .top-pagebar a.is-active, .main .wrapper .pagebar .top-pagebar a:hover {
+.main .wrapper .pagebar .top-pagebar a.is-activeT, .main .wrapper .pagebar .top-pagebar a:hover {
   color: var(--theme-color);
   border-bottom: 2px solid var(--theme-color);
   border-radius: 0px;
