@@ -16,10 +16,12 @@
   --border-color: light-dark(rgba(255 255 255 / 35%), rgba(113 119 144 / 25%));
   --content-button-color: light-dark(#5cb0ff, #3a6df0);
   --content-button-hover: light-dark(#6891fa, #1e59f1);
-  --body-font: "Poppins", sans-serif;
+  //--body-font: "Poppins", sans-serif;
+  --body-font: -apple-system, BlinkMacSystemFont, sans-serif;
   --theme-color: light-dark(#3c3a3a, #f9fafb);
   --hover-menu-bg: light-dark(rgba(255 255 255 / 35%), rgba(12 15 25 / 30%));
-  --inactive-color: light-dark(#333333, rgba(113 119 144 / 78%));
+  --inactive-color: light-dark(#333333, rgba(146, 152, 179, 0.78));
+  --href-color: light-dark(#3a6df0, #5cb0ff);
 }
 
 .light-mode {
@@ -48,7 +50,6 @@ body {
   flex-direction: column;
   margin: 0px;
   height: 100vh;
-  font-family: var(--body-font);
   transition: all 1s ease;
 }
 
@@ -209,14 +210,31 @@ body.light-mode .video-bg:before {
           width: 100%;
           flex-direction: column;
           padding: 1% 5%;
+          overflow-y: auto;
+          -ms-overflow-style: none;  // IE and Edge
+          scrollbar-width: none;  // Firefox
+          // Chrome and Safari
+          &::-webkit-scrollbar {
+            display: none;
+          }
   
           img {
             border-radius: 25px;
+            width: 100%;
           }
   
-          p {
+          p, h2 {
             color: var(--theme-color);
           };
+
+          a {
+            color: var(--href-color)
+          }
+
+          .phone {
+            list-style-type: none;
+            //padding-left: 0;
+          }
         }
       }
     }
@@ -258,7 +276,7 @@ body.light-mode .video-bg:before {
       font-size: 14px;
       border-radius: 6px;
       transition: 0.3s;
-      width: 90%;
+      width: 100%;
 
       &.is-active,
       &:hover {
@@ -273,6 +291,11 @@ body.light-mode .video-bg:before {
       width: 16px;
       margin-right: 8px;
     }
+
+  }
+
+  &.hidden {
+    translate: -100%;
   }
 }
 
