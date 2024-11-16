@@ -215,8 +215,40 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content a {
   color: var(--href-color);
 }
-.main .wrapper .page [id^=page-] .content .phone {
+.main .wrapper .page [id^=page-] .content .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.main .wrapper .page [id^=page-] .content .grid .phone {
   list-style-type: none;
+}
+.main .wrapper .page [id^=page-] .content .grid .social {
+  display: flex;
+  flex-direction: column;
+  -moz-columns: 2;
+       columns: 2;
+  padding-top: 1em;
+  align-content: space-between;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.main .wrapper .page [id^=page-] .content .grid .social a {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 0.1666666667fr);
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.main .wrapper .page [id^=page-] .content .grid .social a .social-icon {
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .sidebar {

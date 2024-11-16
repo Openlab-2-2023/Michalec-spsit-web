@@ -231,9 +231,41 @@ body.light-mode .video-bg:before {
             color: var(--href-color)
           }
 
-          .phone {
-            list-style-type: none;
-            //padding-left: 0;
+          .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+
+            .phone {
+              list-style-type: none;
+              //padding-left: 0;
+            }
+
+            .social {
+              display: flex;
+              flex-direction: column;
+              columns: 2;
+              padding-top: 1em;
+              align-content: space-between;
+              width: fit-content;
+
+              a {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, calc(1fr / 6));
+                justify-items: center;
+                align-items: center;
+                align-content: center;
+                justify-content: center;
+                text-decoration: none;
+
+                .social-icon {
+                  height: 100%;
+                  width: fit-content;
+                  object-fit: contain;
+                }
+              }
+            }
           }
         }
       }
