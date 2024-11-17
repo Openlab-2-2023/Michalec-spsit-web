@@ -220,6 +220,9 @@ body.light-mode .video-bg:before {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+.main .wrapper .page [id^=page-] .content .grid li {
+  color: var(--theme-color);
+}
 .main .wrapper .page [id^=page-] .content .grid .phone {
   list-style-type: none;
 }
@@ -255,8 +258,8 @@ body.light-mode .video-bg:before {
   display: flex;
   justify-content: left;
   flex-direction: column;
-  width: -moz-fit-content;
-  width: fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   height: 100%;
   margin: 10px 0;
 }
@@ -286,7 +289,7 @@ body.light-mode .video-bg:before {
   font-size: 14px;
   border-radius: 6px;
   transition: 0.3s;
-  width: 100%;
+  width: 95%;
 }
 .sidebar .left-sidebar a.is-active, .sidebar .left-sidebar a:hover {
   color: var(--theme-color);

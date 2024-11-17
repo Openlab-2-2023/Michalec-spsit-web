@@ -236,6 +236,10 @@ body.light-mode .video-bg:before {
             grid-template-columns: 1fr 1fr;
             gap: 20px;
 
+            li {
+              color: var(--theme-color);
+            }
+
             .phone {
               list-style-type: none;
               //padding-left: 0;
@@ -277,7 +281,7 @@ body.light-mode .video-bg:before {
   display: flex;
   justify-content: left;
   flex-direction: column;
-  width: fit-content;
+  min-width: fit-content;
   height: 100%;
   margin: 10px 0;
   //border-right: 1px solid var(--border-color);
@@ -308,7 +312,7 @@ body.light-mode .video-bg:before {
       font-size: 14px;
       border-radius: 6px;
       transition: 0.3s;
-      width: 100%;
+      width: 95%;
 
       &.is-active,
       &:hover {
