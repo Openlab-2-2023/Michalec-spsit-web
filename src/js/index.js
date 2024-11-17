@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const top_pagebar = document.querySelectorAll(".top-pagebar a");
   const pages = document.querySelectorAll('.page > div[id^="page-"]');
-  const left_pagebar = document.querySelectorAll(
+  const left_sidebar = document.querySelectorAll(
     ".left-sidebar .side-wrapper a"
   );
   const contents = document.querySelectorAll(".content > div");
@@ -36,12 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  left_pagebar.forEach((link) => {
+  left_sidebar.forEach((link) => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
 
       // Remove active class from all links
-      left_pagebar.forEach((link) => link.classList.remove("is-active"));
+      left_sidebar.forEach((link) => link.classList.remove("is-active"));
 
       // Add active class to the clicked link
       this.classList.add("is-active");
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     // Remove active class from all links
-    left_pagebar.forEach((link) => link.classList.remove("is-active"));
+    left_sidebar.forEach((link) => link.classList.remove("is-active"));
     //left_pagebar[0].classList.add('is-active');
     // Add active class to the first link
     firstLink.classList.add("is-active");
