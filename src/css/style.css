@@ -50,7 +50,6 @@ body {
   margin: 0px;
   height: 100vh;
   transition: all 1s ease;
-  cursor: var(--cursor);
 }
 
 .video-bg {
@@ -202,18 +201,14 @@ body.light-mode .video-bg:before {
   flex-direction: column;
   padding: 1% 5%;
   overflow-y: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.main .wrapper .page [id^=page-] .content::-webkit-scrollbar {
-  display: none;
 }
 .main .wrapper .page [id^=page-] .content img {
   border-radius: 25px;
   width: 100%;
 }
 .main .wrapper .page [id^=page-] .content p,
-.main .wrapper .page [id^=page-] .content h2 {
+.main .wrapper .page [id^=page-] .content h2,
+.main .wrapper .page [id^=page-] .content h3 {
   color: var(--theme-color);
 }
 .main .wrapper .page [id^=page-] .content a {
@@ -295,6 +290,21 @@ body.light-mode .video-bg:before {
 }
 .main .wrapper .page [id^=page-] .content .albums_item:hover > .albums_item_title {
   margin-top: 0;
+}
+.main .wrapper .page [id^=page-] .content::-webkit-scrollbar {
+  background-color: var(--theme-bg-color);
+  width: 5px;
+}
+.main .wrapper .page [id^=page-] .content::-webkit-scrollbar-track {
+  background-color: var(--theme-bg-color);
+}
+.main .wrapper .page [id^=page-] .content::-webkit-scrollbar-thumb {
+  background-color: var(--theme-color);
+  border-radius: 5px;
+  border: 1px solid var(--theme-bg-color);
+}
+.main .wrapper .page [id^=page-] .content::-webkit-scrollbar-button {
+  display: none;
 }
 
 .sidebar {
