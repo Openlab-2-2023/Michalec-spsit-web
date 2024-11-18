@@ -22,6 +22,8 @@
   --hover-menu-bg: light-dark(rgba(255 255 255 / 35%), rgba(12 15 25 / 30%));
   --inactive-color: light-dark(#333333, rgba(146, 152, 179, 0.78));
   --href-color: light-dark(#3a6df0, #5cb0ff);
+
+  --cursor: url("../coursor/Normal.cur"), auto;
 }
 
 .light-mode {
@@ -37,6 +39,7 @@
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+  cursor: var(--cursor);
 }
 
 body {
@@ -51,6 +54,7 @@ body {
   margin: 0px;
   height: 100vh;
   transition: all 1s ease;
+  cursor: var(--cursor);
 }
 
 .video-bg {
@@ -89,8 +93,8 @@ body {
 
 .light-mode {
   .dark-light svg {
-      fill: transparent;
-      stroke: var(--theme-color);
+    fill: transparent;
+    stroke: var(--theme-color);
   }
 }
 
@@ -202,7 +206,7 @@ body.light-mode .video-bg:before {
       [id^="page-"] {
         display: flex;
         height: 100%;
-        
+
         .content {
           display: flex;
           align-items: center;
@@ -211,21 +215,25 @@ body.light-mode .video-bg:before {
           flex-direction: column;
           padding: 1% 5%;
           overflow-y: auto;
-          -ms-overflow-style: none;  // IE and Edge
-          scrollbar-width: none;  // Firefox
+          -ms-overflow-style: none; // IE and Edge
+          scrollbar-width: none; // Firefox
+
           // Chrome and Safari
           &::-webkit-scrollbar {
             display: none;
           }
-  
+
           img {
             border-radius: 25px;
             width: 100%;
           }
-  
-          p, h2 {
+
+          p,
+          h2 {
             color: var(--theme-color);
-          };
+          }
+
+          ;
 
           a {
             color: var(--href-color)
@@ -268,6 +276,51 @@ body.light-mode .video-bg:before {
                   width: fit-content;
                   object-fit: contain;
                 }
+              }
+            }
+          }
+
+          .albums {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+
+            &_item {
+              border: 1px solid var(--theme-color);
+              border-radius: 10%;
+              position: relative;
+              overflow: hidden;
+              transition: 0.5s ease;
+              width: 20%;
+              height: fit-content;
+              margin: 20px 10px;
+
+              img {
+                all: unset;
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+              }
+
+              &_title {
+                transition: 0.5s Ease;
+                position: absolute;
+                //top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: fit-content;
+                //margin-top: -250px;
+                text-align: center;
+                background: var(--theme-bg-color);
+                opacity: 1.5;
+              }
+
+              &:hover > .albums_item_title {
+                margin-top: 0;
+
               }
             }
           }

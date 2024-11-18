@@ -19,6 +19,7 @@
   --hover-menu-bg: light-dark(rgba(255 255 255 / 35%), rgba(12 15 25 / 30%));
   --inactive-color: light-dark(#333333, rgba(146, 152, 179, 0.78));
   --href-color: light-dark(#3a6df0, #5cb0ff);
+  --cursor: url("../coursor/Normal.cur"), auto;
 }
 
 .light-mode {
@@ -34,6 +35,7 @@
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+  cursor: var(--cursor);
 }
 
 body {
@@ -48,6 +50,7 @@ body {
   margin: 0px;
   height: 100vh;
   transition: all 1s ease;
+  cursor: var(--cursor);
 }
 
 .video-bg {
@@ -209,7 +212,8 @@ body.light-mode .video-bg:before {
   border-radius: 25px;
   width: 100%;
 }
-.main .wrapper .page [id^=page-] .content p, .main .wrapper .page [id^=page-] .content h2 {
+.main .wrapper .page [id^=page-] .content p,
+.main .wrapper .page [id^=page-] .content h2 {
   color: var(--theme-color);
 }
 .main .wrapper .page [id^=page-] .content a {
@@ -252,6 +256,45 @@ body.light-mode .video-bg:before {
   width: fit-content;
   -o-object-fit: contain;
      object-fit: contain;
+}
+.main .wrapper .page [id^=page-] .content .albums {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+.main .wrapper .page [id^=page-] .content .albums_item {
+  border: 1px solid var(--theme-color);
+  border-radius: 10%;
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s ease;
+  width: 20%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 20px 10px;
+}
+.main .wrapper .page [id^=page-] .content .albums_item img {
+  all: unset;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+.main .wrapper .page [id^=page-] .content .albums_item_title {
+  transition: 0.5s Ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  background: var(--theme-bg-color);
+  opacity: 1.5;
+}
+.main .wrapper .page [id^=page-] .content .albums_item:hover > .albums_item_title {
+  margin-top: 0;
 }
 
 .sidebar {
