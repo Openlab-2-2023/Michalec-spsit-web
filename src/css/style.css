@@ -32,6 +32,12 @@
   --content-button-hover: #6891fa;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -258,6 +264,8 @@ body.light-mode .video-bg:before {
   justify-content: space-around;
   align-items: center;
   margin: 0 auto;
+  padding: 0;
+  border: 0;
 }
 .main .wrapper .page [id^=page-] .content .albums_item {
   border: 1px solid var(--theme-color);
@@ -266,15 +274,21 @@ body.light-mode .video-bg:before {
   overflow: hidden;
   transition: 0.5s ease;
   width: 20%;
+  height: 10%;
+  margin: 2% 1%;
+  padding: 0;
+}
+.main .wrapper .page [id^=page-] .content .albums_item_preview {
   height: -moz-fit-content;
   height: fit-content;
-  margin: 20px 10px;
 }
-.main .wrapper .page [id^=page-] .content .albums_item img {
+.main .wrapper .page [id^=page-] .content .albums_item_preview img {
   all: unset;
   width: 100%;
-  height: auto;
-  max-width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0;
+  margin: 0;
 }
 .main .wrapper .page [id^=page-] .content .albums_item_title {
   transition: 0.5s Ease;
