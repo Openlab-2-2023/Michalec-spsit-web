@@ -313,6 +313,38 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content .courses a {
   color: var(--href-color);
 }
+.main .wrapper .page [id^=page-] .content #direktor tbody {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  gap: 20px;
+}
+.main .wrapper .page [id^=page-] .content #direktor b,
+.main .wrapper .page [id^=page-] .content #direktor li {
+  color: var(--theme-color);
+}
+.main .wrapper .page [id^=page-] .content #direktor table {
+  width: 100%;
+  grid-column: span 2;
+}
+.main .wrapper .page [id^=page-] .content #direktor td {
+  vertical-align: top;
+}
+.main .wrapper .page [id^=page-] .content #direktor a {
+  color: var(--href-color);
+}
+.main .wrapper .page [id^=page-] .content #direktor tr:nth-child(1),
+.main .wrapper .page [id^=page-] .content #direktor tr:nth-child(2),
+.main .wrapper .page [id^=page-] .content #direktor tr:nth-child(3) {
+  grid-column: 1;
+  /* First column */
+}
+.main .wrapper .page [id^=page-] .content #direktor tr:nth-child(4),
+.main .wrapper .page [id^=page-] .content #direktor tr:nth-child(5),
+.main .wrapper .page [id^=page-] .content #direktor tr:nth-child(6) {
+  grid-column: 2;
+  /* Second column */
+}
 .main .wrapper .page [id^=page-] .content::-webkit-scrollbar {
   background-color: var(--theme-bg-color);
   width: 5px;

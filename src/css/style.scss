@@ -308,6 +308,7 @@ body.light-mode .video-bg:before {
 
               &_preview {
                 height: fit-content;
+
                 img {
                   all: unset;
                   width: 100%;
@@ -338,7 +339,7 @@ body.light-mode .video-bg:before {
               }
             }
           }
-          
+
           .courses {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -347,28 +348,71 @@ body.light-mode .video-bg:before {
               color: var(--href-color);
             }
           }
+
+          #direktor {
+            tbody {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              grid-template-rows: repeat(3, auto);
+              gap: 20px;
+            }
+
+            b,
+            li {
+              color: var(--theme-color);
+            }
+
+            table {
+              width: 100%;
+              grid-column: span 2;
+            }
+
+            td {
+              vertical-align: top;
+            }
+            
+            a {
+              color: var(--href-color);
+            }
+
+            tr:nth-child(1),
+            tr:nth-child(2),
+            tr:nth-child(3) {
+              grid-column: 1;
+              /* First column */
+            }
+
+            tr:nth-child(4),
+            tr:nth-child(5),
+            tr:nth-child(6) {
+              grid-column: 2;
+              /* Second column */
+            }
+          }
+
           // total width
           &::-webkit-scrollbar {
             background-color: var(--theme-bg-color);
             width: 5px;
           }
-          
+
           // background of the scrollbar except button or resizer
           &::-webkit-scrollbar-track {
             background-color: var(--theme-bg-color);
           }
-          
+
           // scrollbar itself
           &::-webkit-scrollbar-thumb {
             background-color: var(--theme-color);
             border-radius: 5px;
             border: 1px solid var(--theme-bg-color);
           }
-          
+
           // set button(top and bottom of the scrollbar)
           &::-webkit-scrollbar-button {
             display: none;
           }
+
           //non webkit browsers
           //scrollbar-width: thin;// "auto" or "thin"
           //scrollbar-color: var(--theme-color) var(--theme-bg-color); // thumb and track 
