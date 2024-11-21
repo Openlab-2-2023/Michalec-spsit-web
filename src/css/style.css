@@ -14,11 +14,11 @@
   --border-color: light-dark(rgba(255 255 255 / 35%), rgba(113 119 144 / 25%));
   --content-button-color: light-dark(#5cb0ff, #3a6df0);
   --content-button-hover: light-dark(#6891fa, #1e59f1);
-  --body-font: -apple-system, BlinkMacSystemFont, sans-serif;
+  --body-font: "Saira", sans-serif;
   --theme-color: light-dark(#3c3a3a, #f9fafb);
   --hover-menu-bg: light-dark(rgba(255 255 255 / 35%), rgba(12 15 25 / 30%));
   --inactive-color: light-dark(#333333, rgba(146, 152, 179, 0.78));
-  --href-color: light-dark(#3a6df0, #5cb0ff);
+  --href-color: light-dark(#5cb0ff, #3a6df0);
   --cursor: url("../cursor/Normal.cur"), auto;
 }
 
@@ -213,6 +213,7 @@ body.light-mode .video-bg:before {
   width: 100%;
 }
 .main .wrapper .page [id^=page-] .content p,
+.main .wrapper .page [id^=page-] .content h1,
 .main .wrapper .page [id^=page-] .content h2,
 .main .wrapper .page [id^=page-] .content h3 {
   color: var(--theme-color);
@@ -304,6 +305,13 @@ body.light-mode .video-bg:before {
 }
 .main .wrapper .page [id^=page-] .content .albums_item:hover > .albums_item_title {
   margin-top: 0;
+}
+.main .wrapper .page [id^=page-] .content .courses {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.main .wrapper .page [id^=page-] .content .courses a {
+  color: var(--href-color);
 }
 .main .wrapper .page [id^=page-] .content::-webkit-scrollbar {
   background-color: var(--theme-bg-color);
