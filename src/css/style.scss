@@ -51,7 +51,7 @@ html {
 
 body {
   font-family: var(--body-font);
-  background-image: url(https://wallpapershome.com/images/wallpapers/macos-big-sur-1280x720-dark-wwdc-2020-22655.jpg);
+  //background-image: url(https://wallpapershome.com/images/wallpapers/macos-big-sur-1280x720-dark-wwdc-2020-22655.jpg);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -208,6 +208,7 @@ body.light-mode .video-bg:before {
     .page {
       display: flex;
       height: 100%;
+      width: 100%;
 
       [id^="page-"] {
         display: flex;
@@ -220,7 +221,7 @@ body.light-mode .video-bg:before {
           width: 100%;
           flex-direction: column;
           padding: 1% 5%;
-          overflow-y: auto;
+          //overflow-y: auto;
           // -ms-overflow-style: none; // IE and Edge
           // scrollbar-width: none; // Firefox
 
@@ -350,43 +351,34 @@ body.light-mode .video-bg:before {
           }
 
           #direktor {
-            tbody {
-              display: grid;
-              grid-template-columns: 1fr 1fr;
-              grid-template-rows: repeat(3, auto);
-              gap: 20px;
-            }
+            width: fit-content; // Ensure the container takes full width
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); // Adjust columns to fit within the container
+            gap: 10%; // Adjust gap as needed
 
             b,
             li {
               color: var(--theme-color);
+              list-style-type: none; // Remove circles from list items
             }
 
             table {
               width: 100%;
-              grid-column: span 2;
+              padding: 10% 120%;
             }
 
             td {
-              vertical-align: top;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
             }
-            
+
+            img {
+              margin-bottom: 10px;
+            }
+
             a {
               color: var(--href-color);
-            }
-
-            tr:nth-child(1),
-            tr:nth-child(2),
-            tr:nth-child(3) {
-              grid-column: 1;
-              /* First column */
-            }
-
-            tr:nth-child(4),
-            tr:nth-child(5),
-            tr:nth-child(6) {
-              grid-column: 2;
-              /* Second column */
             }
           }
 
