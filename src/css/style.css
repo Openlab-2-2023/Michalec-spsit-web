@@ -339,6 +339,9 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content #direktor a {
   color: var(--href-color);
 }
+.main .wrapper .page [id^=page-] .content .library li {
+  list-style-type: none;
+}
 .main .wrapper .page [id^=page-] .content::-webkit-scrollbar {
   background-color: var(--theme-bg-color);
   width: 5px;

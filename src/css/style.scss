@@ -382,6 +382,12 @@ body.light-mode .video-bg:before {
             }
           }
 
+          .library {
+            li {
+              list-style-type: none;
+            }
+          }
+
           // total width
           &::-webkit-scrollbar {
             background-color: var(--theme-bg-color);
