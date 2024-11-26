@@ -383,7 +383,7 @@ body.light-mode .video-bg:before {
 }
 .main .wrapper .page [id^=page-] .content #direktor .cards:hover {
   border: 1px solid var(--card-border-hover);
-  box-shadow: 0 7px 50px 10px rgba(0, 0, 0, 0.6666666667);
+  box-shadow: 0 7px 50px 10px var(--card-shadow-hover);
   transform: scale(1.015);
   filter: brightness(1.15);
 }

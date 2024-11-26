@@ -425,7 +425,7 @@ body.light-mode .video-bg:before {
 
               &:hover {
                 border: 1px solid var(--card-border-hover);
-                box-shadow: 0 7px 50px 10px #000000aa;
+                box-shadow: 0 7px 50px 10px var(--card-shadow-hover);
                 transform: scale(1.015);
                 filter: brightness(1.15);
 
