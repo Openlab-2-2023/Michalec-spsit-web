@@ -19,7 +19,14 @@
   --hover-menu-bg: light-dark(rgba(255 255 255 / 35%), rgba(12 15 25 / 30%));
   --inactive-color: light-dark(#333333, rgba(146, 152, 179, 0.78));
   --href-color: light-dark(#5cb0ff, #3a6df0);
-  --cursor: url("../cursor/Normal.cur"), auto;
+  --card-gradient-c1: light-dark(rgba(215, 211, 203, 0.5), rgba(40, 44, 52, .5));
+  --card-gradient-c2: light-dark(rgba(238, 255, 223, 0.25), rgba(17, 0, 32, .25));
+  --card-gradient: linear-gradient(0deg, var(--card-gradient-c1) 0%, var(--card-gradient-c2) 100%);
+  --card-shadow: light-dark(rgba(255, 255, 255, 0.533), rgba(0, 0, 0, 0.533));
+  --card-shadow-before: light-dark(rgba(255, 255, 255, 0.031), rgba(0, 0, 0, 0.031));
+  --card-border-hover: light-dark(rgba(255, 255, 255, 0.27), rgba(0, 0, 0, 0.27));
+  --card-shadow-hover: light-dark(rgba(255, 255, 255, 0.67), rgba(0, 0, 0, 0.67));
+  --cursor: url("../cursor/Normal.png"), normal;
 }
 
 .light-mode {
@@ -30,18 +37,27 @@
   --inactive-color: #333333;
   --content-button-color: #5cb0ff;
   --content-button-hover: #6891fa;
+  --href-color: #5cb0ff;
+  --card-gradient-c1: rgba(215, 211, 203, 0.5);
+  --card-gradient-c2: rgba(238, 255, 223, 0.25);
+  --card-gradient: linear-gradient(0deg, var(--card-gradient-c1) 0%, var(--card-gradient-c2) 100%);
+  --card-shadow: rgba(255, 255, 255, 0.533);
+  --card-shadow-before: rgba(255, 255, 255, 0.31);
+  --card-border-hover: rgba(255, 255, 255, 0.27);
+  --card-shadow-hover: rgba(255, 255, 255, 0.67);
+  --cursor: url("../cursor/Normal.png"), normal;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  cursor: url("../cursor/Normal.svg"), auto;
 }
 
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-  cursor: var(--cursor);
 }
 
 body {
@@ -214,7 +230,8 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content p,
 .main .wrapper .page [id^=page-] .content h1,
 .main .wrapper .page [id^=page-] .content h2,
-.main .wrapper .page [id^=page-] .content h3 {
+.main .wrapper .page [id^=page-] .content h3,
+.main .wrapper .page [id^=page-] .content li {
   color: var(--theme-color);
 }
 .main .wrapper .page [id^=page-] .content a {
@@ -313,31 +330,73 @@ body.light-mode .video-bg:before {
   color: var(--href-color);
 }
 .main .wrapper .page [id^=page-] .content #direktor {
+  display: flex;
+}
+.main .wrapper .page [id^=page-] .content #direktor .cards {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   width: -moz-fit-content;
   width: fit-content;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10%;
+  margin: 5rem 0.5rem;
+  border: 1px solid invert(var(--border-color));
+  background-color: var(--theme-bg-color);
+  background: var(--card-gradient);
+  box-shadow: 0 7px 20px 5px var(--card-shadow);
+  border-radius: 0.7rem;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  overflow: hidden;
+  transition: 0.5s all;
+  display: flex;
+  justify-content: center;
 }
-.main .wrapper .page [id^=page-] .content #direktor b,
-.main .wrapper .page [id^=page-] .content #direktor li {
-  color: var(--theme-color);
-  list-style-type: none;
-}
-.main .wrapper .page [id^=page-] .content #direktor table {
-  width: 100%;
-  padding: 10% 120%;
-}
-.main .wrapper .page [id^=page-] .content #direktor td {
+.main .wrapper .page [id^=page-] .content #direktor .cards .card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  width: 90%;
+  padding: 1rem;
 }
-.main .wrapper .page [id^=page-] .content #direktor img {
-  margin-bottom: 10px;
+.main .wrapper .page [id^=page-] .content #direktor .cards .card .image {
+  border-radius: 0.5rem;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.main .wrapper .page [id^=page-] .content #direktor a {
+.main .wrapper .page [id^=page-] .content #direktor .cards .card h2,
+.main .wrapper .page [id^=page-] .content #direktor .cards .card p {
+  color: var(--theme-color);
+}
+.main .wrapper .page [id^=page-] .content #direktor .cards .card a {
   color: var(--href-color);
+}
+.main .wrapper .page [id^=page-] .content #direktor .cards ::before {
+  position: fixed;
+  content: "";
+  box-shadow: 0 0 100px 40px var(--card-shadow-before);
+  top: -10%;
+  left: -100%;
+  transform: rotate(-45deg);
+  height: 60rem;
+  transition: 0.7s all;
+}
+.main .wrapper .page [id^=page-] .content #direktor .cards:hover {
+  border: 1px solid var(--card-border-hover);
+  box-shadow: 0 7px 50px 10px rgba(0, 0, 0, 0.6666666667);
+  transform: scale(1.015);
+  filter: brightness(1.15);
+}
+.main .wrapper .page [id^=page-] .content #direktor .cards:hover ::before {
+  filter: brightness(0.5);
+  top: -100%;
+  left: 200%;
+}
+.main .wrapper .page [id^=page-] .content #direktor .cards :first-child {
+  margin-left: 0;
+}
+.main .wrapper .page [id^=page-] .content #direktor .cards :last-child {
+  margin-right: 0;
 }
 .main .wrapper .page [id^=page-] .content .library li {
   list-style-type: none;
