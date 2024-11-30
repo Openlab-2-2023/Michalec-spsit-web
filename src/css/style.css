@@ -1,12 +1,9 @@
+@import url("hover.css/hover.css");
 @font-face {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   src: url("https://fonts.gstatic.com/s/poppins/v15/pxiEyp8kv8JHgFVrJJnecmNE.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Kingthings Spikeless";
-  src: url(../../fonts/KingthingsSpikeless.ttf) format("truetype");
 }
 :root {
   color-scheme: light dark;
@@ -211,9 +208,26 @@ body.light-mode .video-bg:before {
   height: 100%;
   width: 100%;
 }
+.main .wrapper .page #toggleSidebar {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: none;
+  border: none;
+  margin-top: 20%;
+  margin-left: 0.5rem;
+  scale: 2;
+  transition: transform 0.3s ease-in-out;
+}
+.main .wrapper .page #toggleSidebar.clicked {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+}
 .main .wrapper .page [id^=page-] {
   display: flex;
   height: 100%;
+  width: 100%;
 }
 .main .wrapper .page [id^=page-] .content {
   display: flex;
@@ -222,6 +236,8 @@ body.light-mode .video-bg:before {
   width: 100%;
   flex-direction: column;
   padding: 1% 5%;
+  overflow: auto;
+  transition: width 0.3s ease;
 }
 .main .wrapper .page [id^=page-] .content img {
   border-radius: 25px;
@@ -431,13 +447,14 @@ body.light-mode .video-bg:before {
   flex-direction: column;
   justify-content: start;
   border-right: 1px solid var(--border-color);
-  padding: 0 20px;
+  padding: 0;
   overflow: auto;
   flex-shrink: 0;
   width: -moz-fit-content;
   width: fit-content;
   height: 100%;
   list-style-type: none;
+  transition: translate 1s ease-in-out;
 }
 .sidebar .left-sidebar .side-wrapper {
   width: 100%;
@@ -464,6 +481,8 @@ body.light-mode .video-bg:before {
 }
 .sidebar.hidden {
   translate: -100%;
+  display: none;
+  transition: translate 1s ease-in-out;
 }
 
 .content-button {
@@ -494,17 +513,16 @@ body.light-mode .video-bg:before {
     margin: 0;
     padding: 10px;
   }
+  .header .color-circle {
+    display: none;
+  }
   .title {
     font-size: 14px;
     margin-left: 0;
   }
-  .color-circle {
-    width: 10px;
-    height: 10px;
-  }
   .wrapper .pagebar .top-pagebar {
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: start;
+    justify-content: start !important;
     width: 100%;
     margin: 0;
   }

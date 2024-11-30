@@ -4,11 +4,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const left_sidebar = document.querySelectorAll(
     ".left-sidebar .side-wrapper a"
   );
+  const toggleSidebarButton = document.getElementById("toggleSidebar");
   const contents = document.querySelectorAll(".content > div");
   const toggleButton = document.querySelector(".dark-light");
+  const sidebar = document.querySelector(".sidebar");
+  const content = document.querySelector(".content");
 
   toggleButton.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
+    toggleSidebar();
+  });
+
+  // Function to toggle sidebar visibility
+  toggleSidebarButton.addEventListener("click", () => {
+    sidebar.classList.toggle("hidden");
+    if (toggleSidebarButton.classList.contains("clicked")) {
+      toggleSidebarButton.classList.remove("clicked");
+    } else{
+      toggleSidebarButton.classList.toggle("clicked");
+    }
+    if (sidebar.classList.contains("hidden")) {
+      content.style.width = "100%";
+    } else {
+      content.style.width = "";
+    }
   });
 
   top_pagebar.forEach((link) => {
