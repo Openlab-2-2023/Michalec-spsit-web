@@ -123,8 +123,8 @@ body.light-mode .video-bg:before {
 
 .main {
   background-color: var(--theme-bg-color);
-  height: calc(100vh - 10%);
-  width: calc(100vw - 10%);
+  height: calc(100vh - 9%);
+  width: calc(100vw - 9%);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -209,20 +209,24 @@ body.light-mode .video-bg:before {
   width: 100%;
 }
 .main .wrapper .page #toggleSidebar {
+  position: fixed;
+  top: 50%;
   width: -moz-fit-content;
   width: fit-content;
   height: -moz-fit-content;
   height: fit-content;
   background: none;
   border: none;
-  margin-top: 20%;
   margin-left: 0.5rem;
-  scale: 2;
+  scale: 1.5;
   transition: transform 0.3s ease-in-out;
 }
 .main .wrapper .page #toggleSidebar.clicked {
   transform: rotate(180deg);
   transition: transform 0.3s ease-in-out;
+}
+.main .wrapper .page #toggleSidebar svg {
+  color: var(--theme-color);
 }
 .main .wrapper .page [id^=page-] {
   display: flex;
@@ -440,7 +444,7 @@ body.light-mode .video-bg:before {
   min-width: -moz-fit-content;
   min-width: fit-content;
   height: 100%;
-  margin: 10px 0;
+  margin: 0.5% 1%;
 }
 .sidebar .left-sidebar {
   display: flex;
@@ -458,6 +462,7 @@ body.light-mode .video-bg:before {
 }
 .sidebar .left-sidebar .side-wrapper {
   width: 100%;
+  margin: 0.1rem 0;
 }
 .sidebar .left-sidebar a {
   text-decoration: none;
@@ -508,10 +513,9 @@ body.light-mode .video-bg:before {
     border-radius: 0;
   }
   .header {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
-    margin: 0;
-    padding: 10px;
+    margin: 0 5px !important;
   }
   .header .color-circle {
     display: none;
@@ -530,6 +534,10 @@ body.light-mode .video-bg:before {
     flex-direction: column;
     align-items: flex-start;
     padding: 10px;
+  }
+  .wrapper .page #toggleSidebar {
+    margin-top: 0 !important;
+    margin-left: -0.3rem !important;
   }
   .wrapper .content {
     padding: 10px;
@@ -565,6 +573,5 @@ body.light-mode .video-bg:before {
   }
   .sidebar .side-wrapper {
     width: 48%;
-    margin: 5px 0;
   }
 }/*# sourceMappingURL=style.css.map */
