@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sidebar.classList.toggle("hidden");
     if (toggleSidebarButton.classList.contains("clicked")) {
       toggleSidebarButton.classList.remove("clicked");
-    } else{
+    } else {
       toggleSidebarButton.classList.toggle("clicked");
     }
     if (sidebar.classList.contains("hidden")) {
@@ -57,25 +57,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   left_sidebar.forEach((link) => {
     link.addEventListener("click", function (event) {
-      event.preventDefault();
-
-      // Remove active class from all links
-      left_sidebar.forEach((link) => link.classList.remove("is-active"));
-
-      // Add active class to the clicked link
-      this.classList.add("is-active");
-
-      // Hide all content sections
-      contents.forEach((content) => (content.style.display = "none"));
-
-      // Show the corresponding content section
-      const content = document.getElementById(
-        this.id.replace("link-", "content-")
-      );
-      if (content) {
-        content.style.display = "unset";
+      if (this.hasAttribute("href")) {
+        // Open the link in a new tab
+        window.open(this.getAttribute("href"), "_blank");
       } else {
-        console.log("No content found");
+        event.preventDefault();
+
+        // Remove active class from all links
+        left_sidebar.forEach((link) => link.classList.remove("is-active"));
+
+        // Add active class to the clicked link
+        this.classList.add("is-active");
+
+        // Hide all content sections
+        contents.forEach((content) => (content.style.display = "none"));
+
+        // Show the corresponding content section
+        const content = document.getElementById(
+          this.id.replace("link-", "content-")
+        );
+        if (content) {
+          content.style.display = "unset";
+        } else {
+          console.log("No content found");
+        }
       }
     });
   });

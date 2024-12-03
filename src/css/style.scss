@@ -542,6 +542,7 @@ body.light-mode .video-bg:before {
       border-radius: 6px;
       transition: 0.3s;
       width: 95%;
+      text-wrap: nowrap;
 
       &.is-active,
       &:hover {
