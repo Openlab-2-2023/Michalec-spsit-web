@@ -90,6 +90,14 @@ body {
   }
 }
 
+#canvas, canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .dark-light {
   position: fixed;
   bottom: 50px;
@@ -468,6 +476,16 @@ body.light-mode .video-bg:before {
           .library {
             li {
               list-style-type: none;
+            }
+          }
+
+          .docs-table {
+            td {
+              color: var(--theme-color);
+            }
+
+            a {
+              color: var(--href-color);
             }
           }
 
