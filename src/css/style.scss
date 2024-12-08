@@ -19,7 +19,7 @@
   --theme-color: light-dark(#3c3a3a, #f9fafb);
   --hover-menu-bg: light-dark(rgba(255 255 255 / 35%), rgba(12 15 25 / 30%));
   --inactive-color: light-dark(#333333, rgba(146, 152, 179, 0.78));
-  --href-color: light-dark(#5cb0ff, #3a6df0);
+  --href-color: light-dark(#3a6df0, #5cb0ff);
   --card-gradient-c1: light-dark(rgba(215, 211, 203, 0.5), rgba(40, 44, 52, .5));
   --card-gradient-c2: light-dark(rgba(238, 255, 223, 0.25), rgba(17, 0, 32, .25));
   --card-gradient: linear-gradient(0deg, var(--card-gradient-c1) 0%, var(--card-gradient-c2) 100%);
@@ -39,7 +39,7 @@
   --inactive-color: #333333;
   --content-button-color: #5cb0ff;
   --content-button-hover: #6891fa;
-  --href-color: #5cb0ff;
+  --href-color: #3a6df0;
   --card-gradient-c1: rgba(215, 211, 203, 0.5);
   --card-gradient-c2: rgba(238, 255, 223, 0.25);
   --card-gradient: linear-gradient(0deg, var(--card-gradient-c1) 0%, var(--card-gradient-c2) 100%);
@@ -90,7 +90,8 @@ body {
   }
 }
 
-#canvas, canvas {
+#canvas,
+canvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -480,12 +481,54 @@ body.light-mode .video-bg:before {
           }
 
           .docs-table {
+
+            th,
             td {
+              padding: 12px 15px;
+              text-align: left;
               color: var(--theme-color);
+              border: 1px solid var(--border-color);
+              border-radius: 50px;
+            }
+
+            thead {
+              background-color: var(--theme-bg-color);
+              // border-bottom: 2px solid var(--border-color);
+              border-radius: 50px;
+            }
+
+            tbody { 
+              tr {
+                // border-bottom: 1px solid var(--border-color);
+                transition: background-color 0.3s;
+                border-radius: 50px;
+                
+                &:hover {
+                  background-color: var(--hover-menu-bg);
+                  border-radius: 50px;
+                }
+              }
+              
             }
 
             a {
               color: var(--href-color);
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+
+            .file {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+
+              &::before {
+                content: url(../icons/file.svg);
+                margin-right: 10px;
+              }
             }
           }
 
