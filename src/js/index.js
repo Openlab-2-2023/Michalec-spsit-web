@@ -170,10 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   left_sidebar.forEach((link) => {
     link.addEventListener("click", function (event) {
-      if (this.hasAttribute("href")) {
-        // firefox opening tabs twice
-        // Open the link in a new tab
-        window.open(this.getAttribute("href"), "_blank");
+      if (this.hasAttribute("link")) {
+        window.open(this.getAttribute("link"), "_blank"); // Open the link in a new tab
       } else {
         event.preventDefault();
 
