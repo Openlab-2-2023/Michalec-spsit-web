@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.skypack.dev/three@v0.122.0';
+import * as THREE from "https://cdn.skypack.dev/three@v0.122.0";
 
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -17,7 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.insertBefore(renderer.domElement, document.body.firstChild);
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
 
   let vCheck = false;
 
@@ -26,29 +31,40 @@ document.addEventListener("DOMContentLoaded", function () {
   var randomisePosition = new THREE.Vector2(1, 2);
 
   var R = function (x, y, t) {
-    return (Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t)));
-  }
+    return Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t));
+  };
 
   var G = function (x, y, t) {
-    return (Math.floor(192 + 64 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300)));
-  }
+    return Math.floor(
+      192 +
+        64 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300)
+    );
+  };
 
   var B = function (x, y, t) {
-    return (Math.floor(192 + 64 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100)));
-  }
-  let sNoise = document.querySelector('#snoise-function').textContent
+    return Math.floor(
+      192 +
+        64 *
+          Math.sin(
+            5 * Math.sin(t / 9) +
+              ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100
+          )
+    );
+  };
+  let sNoise = document.querySelector("#snoise-function").textContent;
   let geometry = new THREE.PlaneGeometry(window.innerWidth / 2, 400, 100, 100);
   let material = new THREE.ShaderMaterial({
     uniforms: {
-      u_bg: { type: 'v3', value: rgb(208, 38, 38) }, // red
-      u_bgMain: { type: 'v3', value: rgb(22, 144, 16) }, // darker green
-      u_color1: { type: 'v3', value: rgb(58, 175, 223) }, // light blue
-      u_color2: { type: 'v3', value: rgb(170, 199, 14) }, // yellow
-      u_time: { type: 'f', value: 30 },
-      u_randomisePosition: { type: 'v2', value: randomisePosition }
+      u_bg: { type: "v3", value: rgb(208, 38, 38) }, // red
+      u_bgMain: { type: "v3", value: rgb(22, 144, 16) }, // darker green
+      u_color1: { type: "v3", value: rgb(58, 175, 223) }, // light blue
+      u_color2: { type: "v3", value: rgb(170, 199, 14) }, // yellow
+      u_time: { type: "f", value: 30 },
+      u_randomisePosition: { type: "v2", value: randomisePosition },
     },
-    fragmentShader: sNoise + document.querySelector('#fragment-shader').textContent,
-    vertexShader: sNoise + document.querySelector('#vertex-shader').textContent,
+    fragmentShader:
+      sNoise + document.querySelector("#fragment-shader").textContent,
+    vertexShader: sNoise + document.querySelector("#vertex-shader").textContent,
   });
 
   let mesh = new THREE.Mesh(geometry, material);
@@ -69,7 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
     renderer.render(scene, camera);
     mesh.material.uniforms.u_randomisePosition.value = new THREE.Vector2(j, j);
 
-    mesh.material.uniforms.u_color1.value = new THREE.Vector3(R(x, y, t / 2), G(x, y, t / 2), B(x, y, t / 2));
+    mesh.material.uniforms.u_color1.value = new THREE.Vector3(
+      R(x, y, t / 2),
+      G(x, y, t / 2),
+      B(x, y, t / 2)
+    );
 
     mesh.material.uniforms.u_time.value = t;
     if (t % 0.1 == 0) {
@@ -83,7 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (x >= 32) {
           vCheck = false;
         }
-
       }
     }
 
@@ -103,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleSidebarButton = document.getElementById("toggleSidebar");
   const contents = document.querySelectorAll(".content > div");
   const toggleButton = document.querySelector(".dark-light");
-  const sidebar = document.querySelector(".sidebar");
+  const sidebars = document.querySelectorAll(".sidebar");
   const content = document.querySelector(".content");
 
   toggleButton.addEventListener("click", () => {
@@ -113,17 +132,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to toggle sidebar visibility
   toggleSidebarButton.addEventListener("click", () => {
-    sidebar.classList.toggle("hidden");
-    if (toggleSidebarButton.classList.contains("clicked")) {
-      toggleSidebarButton.classList.remove("clicked");
-    } else {
-      toggleSidebarButton.classList.toggle("clicked");
-    }
-    if (sidebar.classList.contains("hidden")) {
-      content.style.width = "100%";
-    } else {
-      content.style.width = "";
-    }
+    sidebars.forEach((sidebar) => {
+      sidebar.classList.toggle("hidden");
+      if (sidebar.classList.contains("hidden")) {
+        content.style.width = "100%";
+      } else {
+        content.style.width = "";
+      }
+    });
+    toggleSidebarButton.classList.toggle("clicked");
   });
 
   top_pagebar.forEach((link) => {
@@ -153,7 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   left_sidebar.forEach((link) => {
     link.addEventListener("click", function (event) {
-      if (this.hasAttribute("href")) { // firefox opening tabs twice
+      if (this.hasAttribute("href")) {
+        // firefox opening tabs twice
         // Open the link in a new tab
         window.open(this.getAttribute("href"), "_blank");
       } else {
