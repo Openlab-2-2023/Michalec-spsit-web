@@ -215,7 +215,7 @@ body.light-mode .video-bg:before {
 .main .wrapper .page {
   display: flex;
   height: 100%;
-  width: 100%;
+  flex-grow: 1;
 }
 .main .wrapper .page #toggleSidebar {
   position: fixed;
@@ -252,6 +252,10 @@ body.light-mode .video-bg:before {
   overflow: auto;
   transition: width 0.3s ease;
 }
+.main .wrapper .page [id^=page-] .content [id^=content-] {
+  width: 100%;
+  overflow-y: auto;
+}
 .main .wrapper .page [id^=page-] .content img {
   border-radius: 25px;
   width: 100%;
@@ -260,7 +264,9 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content h1,
 .main .wrapper .page [id^=page-] .content h2,
 .main .wrapper .page [id^=page-] .content h3,
-.main .wrapper .page [id^=page-] .content li {
+.main .wrapper .page [id^=page-] .content h5,
+.main .wrapper .page [id^=page-] .content li,
+.main .wrapper .page [id^=page-] .content td {
   color: var(--theme-color);
 }
 .main .wrapper .page [id^=page-] .content a {
@@ -488,7 +494,8 @@ body.light-mode .video-bg:before {
   flex-direction: column;
   min-width: -moz-fit-content;
   min-width: fit-content;
-  height: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
   margin: 0.5% 1%;
 }
 .sidebar .left-sidebar {

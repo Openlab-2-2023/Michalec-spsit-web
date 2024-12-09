@@ -230,7 +230,7 @@ body.light-mode .video-bg:before {
     .page {
       display: flex;
       height: 100%;
-      width: 100%;
+      flex-grow: 1;
 
       #toggleSidebar {
         position: fixed;
@@ -274,6 +274,11 @@ body.light-mode .video-bg:before {
           //   display: none;
           // }
 
+          [id^="content-"] {
+            width: 100%;
+            overflow-y: auto;
+          }
+
           img {
             border-radius: 25px;
             width: 100%;
@@ -283,7 +288,9 @@ body.light-mode .video-bg:before {
           h1,
           h2,
           h3,
-          li {
+          h5,
+          li,
+          td {
             color: var(--theme-color);
           }
 
@@ -570,7 +577,7 @@ body.light-mode .video-bg:before {
   justify-content: left;
   flex-direction: column;
   min-width: fit-content;
-  height: 100%;
+  height: fit-content;
   margin: .5% 1%;
   //border-right: 1px solid var(--border-color);
 
