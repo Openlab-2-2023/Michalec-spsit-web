@@ -107,8 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Increase t by a certain value every frame
-    j = j + 0.01;
-    t = t + 0.05;
+    j = j + 0.001;
+    t = t + 0.005;
   };
   animate();
 

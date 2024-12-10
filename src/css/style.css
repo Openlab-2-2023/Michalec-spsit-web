@@ -214,8 +214,7 @@ body.light-mode .video-bg:before {
 }
 .main .wrapper .page {
   display: flex;
-  height: 100%;
-  flex-grow: 1;
+  height: 95%;
 }
 .main .wrapper .page #toggleSidebar {
   position: fixed;
@@ -494,8 +493,7 @@ body.light-mode .video-bg:before {
   flex-direction: column;
   min-width: -moz-fit-content;
   min-width: fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 95%;
   margin: 0.5% 1%;
 }
 .sidebar .left-sidebar {
@@ -504,6 +502,7 @@ body.light-mode .video-bg:before {
   justify-content: start;
   border-right: 1px solid var(--border-color);
   padding: 0;
+  padding-right: 5%;
   overflow: auto;
   flex-shrink: 0;
   width: -moz-fit-content;
@@ -526,7 +525,6 @@ body.light-mode .video-bg:before {
   font-size: 14px;
   border-radius: 6px;
   transition: 0.3s;
-  width: 95%;
   text-wrap: nowrap;
 }
 .sidebar .left-sidebar a.is-active, .sidebar .left-sidebar a:hover {

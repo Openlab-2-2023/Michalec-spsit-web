@@ -229,8 +229,8 @@ body.light-mode .video-bg:before {
 
     .page {
       display: flex;
-      height: 100%;
-      flex-grow: 1;
+      // flex-grow: 1;
+      height: 95%;
 
       #toggleSidebar {
         position: fixed;
@@ -577,7 +577,7 @@ body.light-mode .video-bg:before {
   justify-content: left;
   flex-direction: column;
   min-width: fit-content;
-  height: fit-content;
+  height: 95%;
   margin: .5% 1%;
   //border-right: 1px solid var(--border-color);
 
@@ -587,6 +587,7 @@ body.light-mode .video-bg:before {
     justify-content: start;
     border-right: 1px solid var(--border-color);
     padding: 0;
+    padding-right: 5%;
     overflow: auto;
     flex-shrink: 0;
     width: fit-content;
@@ -609,7 +610,7 @@ body.light-mode .video-bg:before {
       font-size: 14px;
       border-radius: 6px;
       transition: 0.3s;
-      width: 95%;
+      // width: 95%;
       text-wrap: nowrap;
 
       &.is-active,
