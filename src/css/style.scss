@@ -487,56 +487,65 @@ body.light-mode .video-bg:before {
             }
           }
 
-          .docs-table {
-
-            th,
-            td {
-              padding: 12px 15px;
-              text-align: left;
-              color: var(--theme-color);
-              border: 1px solid var(--border-color);
-              border-radius: 50px;
-            }
-
-            thead {
-              background-color: var(--theme-bg-color);
-              // border-bottom: 2px solid var(--border-color);
-              border-radius: 50px;
-            }
-
-            tbody { 
-              tr {
-                // border-bottom: 1px solid var(--border-color);
-                transition: background-color 0.3s;
+          #docs {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .docs-table {
+              th,
+              td {
+                padding: 12px 15px;
+                text-align: left;
+                color: var(--theme-color);
+                border: 1px solid var(--border-color);
                 border-radius: 50px;
-                
-                &:hover {
-                  background-color: var(--hover-menu-bg);
+              }
+  
+              thead {
+                background-color: var(--theme-bg-color);
+                // border-bottom: 2px solid var(--border-color);
+                border-radius: 50px;
+              }
+  
+              tbody { 
+                tr {
+                  // border-bottom: 1px solid var(--border-color);
+                  transition: background-color 0.3s;
                   border-radius: 50px;
+                  
+                  &:hover {
+                    background-color: var(--hover-menu-bg);
+                  }
+                }
+                
+              }
+  
+              a {
+                color: var(--href-color);
+                text-decoration: none;
+  
+                &:hover {
+                  text-decoration: underline;
                 }
               }
-              
-            }
-
-            a {
-              color: var(--href-color);
-              text-decoration: none;
-
-              &:hover {
-                text-decoration: underline;
+  
+              .file {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+  
+                &::before {
+                  content: url(../icons/file.svg);
+                  margin-right: 10px;
+                }
               }
             }
+          }
 
-            .file {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-
-              &::before {
-                content: url(../icons/file.svg);
-                margin-right: 10px;
-              }
-            }
+          #staff {
+            display: flex;
+            flex-direction: column;
           }
 
           // total width
