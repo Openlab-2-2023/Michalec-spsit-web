@@ -441,38 +441,36 @@ body.light-mode .video-bg:before {
   justify-content: center;
   align-items: center;
 }
-.main .wrapper .page [id^=page-] .content #docs .docs-table th,
-.main .wrapper .page [id^=page-] .content #docs .docs-table td {
+.main .wrapper .page [id^=page-] .content .custom-table th,
+.main .wrapper .page [id^=page-] .content .custom-table td {
+  border: 1px transparent var(--border-color);
+  border-radius: 1em;
   padding: 12px 15px;
   text-align: left;
   color: var(--theme-color);
-  border: 1px solid var(--border-color);
-  border-radius: 50px;
 }
-.main .wrapper .page [id^=page-] .content #docs .docs-table thead {
+.main .wrapper .page [id^=page-] .content .custom-table thead th {
   background-color: var(--theme-bg-color);
-  border-radius: 50px;
 }
-.main .wrapper .page [id^=page-] .content #docs .docs-table tbody tr {
+.main .wrapper .page [id^=page-] .content .custom-table tbody tr {
   transition: background-color 0.3s;
-  border-radius: 50px;
 }
-.main .wrapper .page [id^=page-] .content #docs .docs-table tbody tr:hover {
+.main .wrapper .page [id^=page-] .content .custom-table tbody tr:hover {
   background-color: var(--hover-menu-bg);
 }
-.main .wrapper .page [id^=page-] .content #docs .docs-table a {
+.main .wrapper .page [id^=page-] .content .custom-table a {
   color: var(--href-color);
   text-decoration: none;
 }
-.main .wrapper .page [id^=page-] .content #docs .docs-table a:hover {
+.main .wrapper .page [id^=page-] .content .custom-table a:hover {
   text-decoration: underline;
 }
-.main .wrapper .page [id^=page-] .content #docs .docs-table .file {
+.main .wrapper .page [id^=page-] .content .custom-table .file {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.main .wrapper .page [id^=page-] .content #docs .docs-table .file::before {
+.main .wrapper .page [id^=page-] .content .custom-table .file::before {
   content: url(../icons/file.svg);
   margin-right: 10px;
 }

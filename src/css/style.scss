@@ -492,53 +492,47 @@ body.light-mode .video-bg:before {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            .docs-table {
-              th,
-              td {
-                padding: 12px 15px;
-                text-align: left;
-                color: var(--theme-color);
-                border: 1px solid var(--border-color);
-                border-radius: 50px;
+          }
+          .custom-table {
+
+            th,
+            td {
+              border: 1px transparent var(--border-color);
+              border-radius: 1em;
+              padding: 12px 15px;
+              text-align: left;
+              color: var(--theme-color);
+            }
+
+            thead th {
+              background-color: var(--theme-bg-color);
+            }
+
+            tbody tr { // not rounded hover on firefox
+              transition: background-color 0.3s;
+
+              &:hover {
+                background-color: var(--hover-menu-bg);
               }
-  
-              thead {
-                background-color: var(--theme-bg-color);
-                // border-bottom: 2px solid var(--border-color);
-                border-radius: 50px;
+            }
+
+            a {
+              color: var(--href-color);
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
               }
-  
-              tbody { 
-                tr {
-                  // border-bottom: 1px solid var(--border-color);
-                  transition: background-color 0.3s;
-                  border-radius: 50px;
-                  
-                  &:hover {
-                    background-color: var(--hover-menu-bg);
-                  }
-                }
-                
-              }
-  
-              a {
-                color: var(--href-color);
-                text-decoration: none;
-  
-                &:hover {
-                  text-decoration: underline;
-                }
-              }
-  
-              .file {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-  
-                &::before {
-                  content: url(../icons/file.svg);
-                  margin-right: 10px;
-                }
+            }
+
+            .file {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+
+              &::before {
+                content: url(../icons/file.svg);
+                margin-right: 10px;
               }
             }
           }
