@@ -65,7 +65,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 0px;
+  margin: 0;
   height: 100vh;
   transition: all 1s ease;
 }
@@ -138,10 +138,10 @@ body.light-mode .video-bg:before {
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  border-radius: 14px;
+  border-radius: clamp(8px, 1.4vw, 14px);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  font-size: 15px;
+  font-size: clamp(12px, 1.5vw, 15px);
   font-weight: 500;
 }
 .main .header {
@@ -149,20 +149,20 @@ body.light-mode .video-bg:before {
   align-items: center;
   justify-content: space-between;
   border-bottom: 3px solid var(--border-color);
-  margin: 0 10px 0 10px;
+  margin: 0 clamp(5px, 1vw, 10px);
 }
 .main .header .title {
-  font-size: 17px;
+  font-size: clamp(14px, 1.5vw, 17px);
   font-weight: 500;
   color: var(--theme-color);
-  margin-left: 1rem;
+  margin-left: clamp(0.5rem, 1vw, 1rem);
 }
 .main .header .color-circle {
-  width: 15px;
-  height: 15px;
+  width: clamp(10px, 1.5vw, 15px);
+  height: clamp(10px, 1.5vw, 15px);
   background-color: #f96057;
   border-radius: 50%;
-  box-shadow: 24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65;
+  box-shadow: clamp(16px, 2vw, 24px) 0 0 0 #f8ce52, clamp(32px, 3vw, 48px) 0 0 0 #5fcf65;
   flex-shrink: 0;
 }
 .main .wrapper {
@@ -183,12 +183,12 @@ body.light-mode .video-bg:before {
   flex-direction: row;
   justify-content: center;
   border-bottom: 1px solid var(--border-color);
-  margin: 0 20px;
+  margin: 0 clamp(10px, 2vw, 20px);
   overflow: auto;
   flex-shrink: 0;
   height: -moz-fit-content;
   height: fit-content;
-  width: calc(100% - 40px);
+  width: calc(100% - clamp(20px, 4vw, 40px));
 }
 .main .wrapper .pagebar .top-pagebar a {
   text-decoration: none;
@@ -196,9 +196,9 @@ body.light-mode .video-bg:before {
   display: flex;
   align-items: center;
   font-weight: 400;
-  padding: 10px;
-  font-size: 14px;
-  border-radius: 6px;
+  padding: clamp(5px, 1vw, 10px);
+  font-size: clamp(12px, 1.4vw, 14px);
+  border-radius: clamp(3px, 0.5vw, 6px);
   transition: 0.3s;
   width: -moz-fit-content;
   width: fit-content;
@@ -206,11 +206,11 @@ body.light-mode .video-bg:before {
 .main .wrapper .pagebar .top-pagebar a.is-activeT, .main .wrapper .pagebar .top-pagebar a:hover {
   color: var(--theme-color);
   border-bottom: 2px solid var(--theme-color);
-  border-radius: 0px;
+  border-radius: 0;
 }
 .main .wrapper .pagebar .top-pagebar svg {
-  width: 16px;
-  margin-right: 8px;
+  width: clamp(12px, 1.5vw, 16px);
+  margin-right: clamp(4px, 0.5vw, 8px);
 }
 .main .wrapper .page {
   display: flex;
@@ -225,7 +225,7 @@ body.light-mode .video-bg:before {
   height: fit-content;
   background: none;
   border: none;
-  margin-left: 0.5rem;
+  margin-left: clamp(0.3rem, 1vw, 0.5rem);
   scale: 1.5;
   transition: transform 0.3s ease-in-out;
 }
@@ -247,7 +247,7 @@ body.light-mode .video-bg:before {
   justify-content: flex-start;
   width: 100%;
   flex-direction: column;
-  padding: 1% 5%;
+  padding: clamp(0.5%, 1vw, 1%) clamp(2.5%, 5vw, 5%);
   overflow: auto;
   transition: width 0.3s ease;
 }
@@ -256,7 +256,7 @@ body.light-mode .video-bg:before {
   overflow-y: auto;
 }
 .main .wrapper .page [id^=page-] .content img {
-  border-radius: 25px;
+  border-radius: clamp(15px, 2vw, 25px);
   width: 100%;
 }
 .main .wrapper .page [id^=page-] .content p,
@@ -265,16 +265,21 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content h3,
 .main .wrapper .page [id^=page-] .content h5,
 .main .wrapper .page [id^=page-] .content li,
-.main .wrapper .page [id^=page-] .content td {
+.main .wrapper .page [id^=page-] .content td,
+.main .wrapper .page [id^=page-] .content i {
   color: var(--theme-color);
 }
 .main .wrapper .page [id^=page-] .content a {
   color: var(--href-color);
+  text-decoration: none;
+}
+.main .wrapper .page [id^=page-] .content a:hover {
+  text-decoration: underline;
 }
 .main .wrapper .page [id^=page-] .content .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: clamp(10px, 2vw, 20px);
 }
 .main .wrapper .page [id^=page-] .content .grid li {
   color: var(--theme-color);
@@ -372,12 +377,12 @@ body.light-mode .video-bg:before {
           user-select: none;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 5rem 0.5rem;
+  margin: clamp(3rem, 5vw, 5rem) clamp(0.3rem, 1vw, 0.5rem);
   border: 1px solid invert(var(--border-color));
   background-color: var(--theme-bg-color);
   background: var(--card-gradient);
-  box-shadow: 0 7px 20px 5px var(--card-shadow);
-  border-radius: 0.7rem;
+  box-shadow: 0 clamp(5px, 1vw, 7px) clamp(15px, 2vw, 20px) clamp(3px, 1vw, 5px) var(--card-shadow);
+  border-radius: clamp(0.5rem, 1vw, 0.7rem);
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
   overflow: hidden;
@@ -390,10 +395,10 @@ body.light-mode .video-bg:before {
   flex-direction: column;
   justify-content: center;
   width: 90%;
-  padding: 1rem;
+  padding: clamp(0.5rem, 1vw, 1rem);
 }
 .main .wrapper .page [id^=page-] .content #direktor .cards .card .image {
-  border-radius: 0.5rem;
+  border-radius: clamp(0.3rem, 0.5vw, 0.5rem);
   max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -408,16 +413,16 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content #direktor .cards ::before {
   position: fixed;
   content: "";
-  box-shadow: 0 0 100px 40px var(--card-shadow-before);
+  box-shadow: 0 0 clamp(70px, 10vw, 100px) clamp(20px, 4vw, 40px) var(--card-shadow-before);
   top: -10%;
   left: -100%;
   transform: rotate(-45deg);
-  height: 60rem;
+  height: clamp(40rem, 60vw, 60rem);
   transition: 0.7s all;
 }
 .main .wrapper .page [id^=page-] .content #direktor .cards:hover {
   border: 1px solid var(--card-border-hover);
-  box-shadow: 0 7px 50px 10px var(--card-shadow-hover);
+  box-shadow: 0 clamp(5px, 1vw, 7px) clamp(35px, 5vw, 50px) clamp(5px, 1vw, 10px) var(--card-shadow-hover);
   transform: scale(1.015);
   filter: brightness(1.15);
 }
@@ -444,8 +449,8 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content .custom-table th,
 .main .wrapper .page [id^=page-] .content .custom-table td {
   border: 1px transparent var(--border-color);
-  border-radius: 1em;
-  padding: 12px 15px;
+  border-radius: clamp(0.5em, 1vw, 1em);
+  padding: clamp(8px, 1vw, 12px) clamp(10px, 1.5vw, 15px);
   text-align: left;
   color: var(--theme-color);
 }
@@ -458,21 +463,16 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content .custom-table tbody tr:hover {
   background-color: var(--hover-menu-bg);
 }
-.main .wrapper .page [id^=page-] .content .custom-table a {
-  color: var(--href-color);
-  text-decoration: none;
-}
-.main .wrapper .page [id^=page-] .content .custom-table a:hover {
-  text-decoration: underline;
-}
 .main .wrapper .page [id^=page-] .content .custom-table .file {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .main .wrapper .page [id^=page-] .content .custom-table .file::before {
-  content: url(../icons/file.svg);
-  margin-right: 10px;
+  max-width: 1em;
+  max-height: auto;
+  content: url(../../img/pdf-svgrepo-com.svg);
+  margin-right: clamp(5px, 1vw, 10px);
 }
 .main .wrapper .page [id^=page-] .content #staff {
   display: flex;
@@ -480,14 +480,14 @@ body.light-mode .video-bg:before {
 }
 .main .wrapper .page [id^=page-] .content::-webkit-scrollbar {
   background-color: var(--theme-bg-color);
-  width: 5px;
+  width: clamp(3px, 0.5vw, 5px);
 }
 .main .wrapper .page [id^=page-] .content::-webkit-scrollbar-track {
   background-color: var(--theme-bg-color);
 }
 .main .wrapper .page [id^=page-] .content::-webkit-scrollbar-thumb {
   background-color: var(--theme-color);
-  border-radius: 5px;
+  border-radius: clamp(3px, 0.5vw, 5px);
   border: 1px solid var(--theme-bg-color);
 }
 .main .wrapper .page [id^=page-] .content::-webkit-scrollbar-button {
@@ -501,7 +501,7 @@ body.light-mode .video-bg:before {
   min-width: -moz-fit-content;
   min-width: fit-content;
   height: 95%;
-  margin: 0.5% 1%;
+  margin: clamp(0.3%, 1vw, 0.5%) clamp(0.5%, 1vw, 1%);
 }
 .sidebar .left-sidebar {
   display: flex;
@@ -509,7 +509,7 @@ body.light-mode .video-bg:before {
   justify-content: start;
   border-right: 1px solid var(--border-color);
   padding: 0;
-  padding-right: 5%;
+  padding-right: clamp(2.5%, 5vw, 5%);
   overflow: auto;
   flex-shrink: 0;
   width: -moz-fit-content;
@@ -520,7 +520,7 @@ body.light-mode .video-bg:before {
 }
 .sidebar .left-sidebar .side-wrapper {
   width: 100%;
-  margin: 0.1rem 0;
+  margin: clamp(0.05rem, 0.5vw, 0.1rem) 0;
 }
 .sidebar .left-sidebar a {
   text-decoration: none;
@@ -528,9 +528,9 @@ body.light-mode .video-bg:before {
   display: flex;
   align-items: center;
   font-weight: 400;
-  padding: 10px;
-  font-size: 14px;
-  border-radius: 6px;
+  padding: clamp(5px, 1vw, 10px);
+  font-size: clamp(12px, 1.4vw, 14px);
+  border-radius: clamp(3px, 0.5vw, 6px);
   transition: 0.3s;
   text-wrap: nowrap;
 }
@@ -539,8 +539,8 @@ body.light-mode .video-bg:before {
   background-color: var(--hover-menu-bg);
 }
 .sidebar .left-sidebar svg {
-  width: 16px;
-  margin-right: 8px;
+  width: clamp(12px, 1.5vw, 16px);
+  margin-right: clamp(4px, 0.5vw, 8px);
 }
 .sidebar.hidden {
   translate: -100%;
@@ -551,10 +551,10 @@ body.light-mode .video-bg:before {
 .content-button {
   background-color: var(--content-button-color);
   border: none;
-  padding: 8px 26px;
+  padding: clamp(5px, 1vw, 8px) clamp(15px, 2vw, 26px);
   color: var(--theme-color);
-  border-radius: 20px;
-  margin-top: 16px;
+  border-radius: clamp(10px, 1vw, 20px);
+  margin-top: clamp(8px, 1vw, 16px);
   cursor: pointer;
   transition: 0.3s;
   white-space: nowrap;
@@ -564,7 +564,7 @@ body.light-mode .video-bg:before {
   background-color: var(--content-button-hover);
 }
 
-@media (max-width: 768px) {
+@media (orientation: portrait) {
   .main {
     width: 100%;
     height: 100%;
@@ -573,13 +573,13 @@ body.light-mode .video-bg:before {
   .header {
     flex-direction: row;
     align-items: flex-start;
-    margin: 0 5px !important;
+    margin: 0 clamp(2px, 0.5vw, 5px) !important;
   }
   .header .color-circle {
     display: none;
   }
   .title {
-    font-size: 14px;
+    font-size: clamp(10px, 1vw, 14px);
     margin-left: 0;
   }
   .wrapper .pagebar .top-pagebar {
@@ -591,30 +591,36 @@ body.light-mode .video-bg:before {
   .wrapper .page {
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px;
+    padding: clamp(5px, 1vw, 10px);
   }
   .wrapper .page #toggleSidebar {
     margin-top: 0 !important;
-    margin-left: -0.3rem !important;
+    margin-left: clamp(-0.3rem, 1vw, -0.3rem) !important;
+    transform: rotate(180deg) !important;
+  }
+  .wrapper .page #toggleSidebar.clicked {
+    transform: rotate(0deg) !important;
   }
   .wrapper .content {
-    padding: 10px;
+    padding: clamp(5px, 1vw, 10px);
   }
   .wrapper .grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: clamp(5px, 1vw, 10px);
   }
   .wrapper .albums_item {
     width: 100%;
     height: auto;
-    margin: 10px 0;
+    margin: clamp(5px, 1vw, 10px) 0;
   }
   .wrapper .courses {
     grid-template-columns: 1fr;
   }
   .wrapper #direktor {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
+    flex-direction: column;
+    align-items: center;
   }
   .sidebar {
     width: 100%;
@@ -625,7 +631,7 @@ body.light-mode .video-bg:before {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 10px;
+    padding: clamp(5px, 1vw, 10px);
     width: 100%;
     height: auto;
   }
