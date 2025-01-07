@@ -47,14 +47,14 @@
   --card-shadow-before: rgba(255, 255, 255, 0.31);
   --card-border-hover: rgba(255, 255, 255, 0.27);
   --card-shadow-hover: rgba(255, 255, 255, 0.67);
-  --cursor: url("../cursor/Normal.png"), normal;
+  --cursor: url("../cursor/Normal.png");
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  cursor: url("../cursor/Normal.svg"), auto;
+  // cursor: url("../cursor/Normal.svg"), pointer !important;
 }
 
 html {
@@ -74,6 +74,7 @@ body {
   margin: 0;
   height: 100vh;
   transition: all 1s ease;
+  cursor: url('https://mac-cursors.netlify.app/svg/default.svg'), default !important; // https://mac-cursors.netlify.app/
 }
 
 .video-bg {
@@ -116,6 +117,10 @@ canvas {
     fill: #ffce45;
     stroke: #ffce45;
     transition: 0.5s;
+  }
+
+  &:hover {
+    cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
   }
 }
 
@@ -217,6 +222,7 @@ body.light-mode .video-bg:before {
             // background-color: var(--hover-menu-bg);
             border-bottom: 2px solid var(--theme-color);
             border-radius: 0;
+            cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
           }
         }
 
@@ -246,6 +252,10 @@ body.light-mode .video-bg:before {
         &.clicked {
           transform: rotate(180deg);
           transition: transform 0.3s ease-in-out;
+        }
+
+        &:hover {
+          cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
         }
 
         svg {
@@ -301,6 +311,7 @@ body.light-mode .video-bg:before {
 
             &:hover {
               text-decoration: underline;
+              cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
             }
           }
 
@@ -499,6 +510,7 @@ body.light-mode .video-bg:before {
             justify-content: center;
             align-items: center;
           }
+
           .custom-table {
 
             th,
@@ -514,7 +526,8 @@ body.light-mode .video-bg:before {
               background-color: var(--theme-bg-color);
             }
 
-            tbody tr { // not rounded hover on firefox
+            tbody tr {
+              // not rounded hover on firefox
               transition: background-color 0.3s;
 
               &:hover {
@@ -526,19 +539,171 @@ body.light-mode .video-bg:before {
               display: flex;
               align-items: center;
               justify-content: space-between;
-              
-              &::before {
-                max-width: 1em;
-                max-height: auto;
-                content: url(../../img/pdf-svgrepo-com.svg);
-                margin-right: clamp(5px, 1vw, 10px);
-              }
+
+              // &::before {
+              //   max-width: 1em;
+              //   max-height: auto;
+              //   content: url(../../img/pdf-svgrepo-com.svg);
+              //   margin-right: clamp(5px, 1vw, 10px);
+              // }
             }
           }
 
           #staff {
             display: flex;
             flex-direction: column;
+          }
+
+          #bugs {
+            // input::-webkit-input-placeholder,
+            // textarea::-webkit-input-placeholder,
+            // input::-moz-placeholder,
+            // textarea::-moz-placeholder {
+            //   color: var(--inactive-color);
+            //   font-size: 0.875em;
+            // }
+
+            // input:focus::-webkit-input-placeholder,
+            // textarea:focus::-webkit-input-placeholder,
+            // input:focus::-moz-placeholder,
+            // textarea:focus::-moz-placeholder {
+            //   color: var(--theme-color);
+            // }
+
+            // input::placeholder,
+            // textarea::placeholder,
+            // input::-ms-placeholder,
+            // textarea::-ms-placeholder {
+            //   color: var(--theme-color);
+            //   font-size: 0.875em;
+            // }
+
+            // input:focus::placeholder,
+            // textarea::focus:placeholder,
+            // input:focus::-ms-placeholder,
+            // textarea:focus::-ms-placeholder {
+            //   color: var(--theme-color);
+            // }
+
+            // /* on hover placeholder */
+
+            // input:hover::-webkit-input-placeholder,
+            // textarea:hover::-webkit-input-placeholder,
+            // input:hover::-moz-placeholder,
+            // textarea:hover::-moz-placeholder {
+            //   color: var(--hover-menu-bg);
+            //   font-size: 0.875em;
+            // }
+
+            // input:hover:focus::-webkit-input-placeholder,
+            // textarea:hover:focus::-webkit-input-placeholder,
+            // input:hover:focus::-moz-placeholder,
+            // textarea:hover:focus::-moz-placeholder {
+            //   color: var(--hover-menu-bg);
+            // }
+
+            // input:hover::placeholder,
+            // textarea:hover::placeholder {
+            //   color: var(--theme-bg-color);
+            //   font-size: 0.875em;
+            // }
+
+            // input:hover:focus::placeholder,
+            // textarea:hover:focus::placeholder,
+            // input:hover:focus::-ms-placeholder,
+            // textarea:hover::focus:-ms-placeholder {
+            //   color: var(--theme-color);
+            // }
+
+            #form {
+              display: flex;
+              flex-direction: column;
+            }
+
+            input {
+              // font-family: 'Lato', sans-serif;
+              font-size: 0.875em;
+              width: 470px;
+              height: 50px;
+              padding: 0px 15px 0px 15px;
+
+              background: transparent;
+              outline: none;
+              color: var(--theme-color);
+
+              border: solid 1px var(--theme-color);
+              border-bottom: none;
+
+              transition: all 0.3s ease-in-out;
+              -webkit-transition: all 0.3s ease-in-out;
+              -moz-transition: all 0.3s ease-in-out;
+              -ms-transition: all 0.3s ease-in-out;
+              
+              &:hover {
+                background: var(--hover-menu-bg);
+                color: var(--theme-color);
+                cursor: url("https://mac-cursors.netlify.app/svg/textcursor.svg"), text;
+              }
+
+              &:first-of-type {
+                border-top-left-radius: clamp(10px, 1vw, 20px);
+                border-top-right-radius: clamp(10px, 1vw, 20px);
+              }
+            }
+
+
+            textarea {
+              width: 470px;
+              max-width: 470px;
+              height: 110px;
+              max-height: 110px;
+              padding: 15px;
+              resize: none;
+
+              background: transparent;
+              outline: none;
+
+              color: var(--theme-color);
+              font-family: 'Lato', sans-serif;
+              font-size: 0.875em;
+
+              border: solid 1px var(--theme-color);
+              border-bottom-left-radius: clamp(10px, 1vw, 20px);
+              border-bottom-right-radius: clamp(10px, 1vw, 20px);
+
+              transition: all 0.3s ease-in-out;
+              -webkit-transition: all 0.3s ease-in-out;
+              -moz-transition: all 0.3s ease-in-out;
+              -ms-transition: all 0.3s ease-in-out;
+            }
+
+            textarea:hover {
+              background: var(--hover-menu-bg);
+              color: var(--theme-color);
+              cursor: url("https://mac-cursors.netlify.app/svg/textcursor.svg"), text !important;
+            }
+
+            // #submit {
+            //   // width: 502px;
+
+            //   padding: 0;
+            //   margin: -5px 0px 0px 0px;
+
+            //   // font-family: 'Lato', sans-serif;
+            //   font-size: 0.875em;
+            //   color: var(--theme-color);
+
+            //   outline: none;
+            //   cursor: pointer;
+
+            //   border: solid 1px var(--theme-color);
+            //   border-top: none;
+            // }
+
+            // #submit:hover {
+            //   color: #e2dedb;
+            //   cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
+            // }
           }
 
           // total width
@@ -621,6 +786,7 @@ body.light-mode .video-bg:before {
         background-color: var(--hover-menu-bg);
         // border-bottom: 2px solid var(--theme-color);
         // border-radius: 0px;
+        cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
       }
     }
 
@@ -639,23 +805,30 @@ body.light-mode .video-bg:before {
 }
 
 .content-button {
-  background-color: var(--content-button-color);
-  border: none;
-  padding: clamp(5px, 1vw, 8px) clamp(15px, 2vw, 26px);
-  color: var(--theme-color);
-  border-radius: clamp(10px, 1vw, 20px);
-  margin-top: clamp(8px, 1vw, 16px);
-  cursor: pointer;
-  transition: 0.3s;
-  white-space: nowrap;
-  text-decoration: none;
+  background-color: var(--content-button-color) !important;
+  border: none !important;
+  padding: clamp(5px, 1vw, 8px) clamp(15px, 2vw, 26px) !important;
+  color: var(--theme-color) !important;
+  border-radius: clamp(10px, 1vw, 20px) !important;
+  margin-top: clamp(8px, 1vw, 16px) !important;
+  cursor: pointer !important;
+  transition: 0.3s !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
 
   &:hover {
-    background-color: var(--content-button-hover);
+    background-color: var(--content-button-hover) !important;
+    cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
   }
 }
 
 @media (orientation: portrait) {
+
+  .dark-light {
+    bottom: .5em;
+    right: .5em;
+  }
+
   .main {
     width: 100%;
     height: 100%;
@@ -708,7 +881,8 @@ body.light-mode .video-bg:before {
     }
 
     .grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: unset !important;
+      grid-template-rows: 1fr;
       gap: clamp(5px, 1vw, 10px);
     }
 
@@ -731,21 +905,15 @@ body.light-mode .video-bg:before {
   }
 
   .sidebar {
-    width: 100%;
+    width: fit-content;
     margin: 0;
     border-right: none;
 
     .left-sidebar {
-      flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
       padding: clamp(5px, 1vw, 10px);
-      width: 100%;
       height: auto;
-    }
-
-    .side-wrapper {
-      width: 48%;
     }
   }
 }

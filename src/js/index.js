@@ -37,18 +37,18 @@ document.addEventListener("DOMContentLoaded", function () {
   var G = function (x, y, t) {
     return Math.floor(
       192 +
-        64 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300)
+      64 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300)
     );
   };
 
   var B = function (x, y, t) {
     return Math.floor(
       192 +
-        64 *
-          Math.sin(
-            5 * Math.sin(t / 9) +
-              ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100
-          )
+      64 *
+      Math.sin(
+        5 * Math.sin(t / 9) +
+        ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100
+      )
     );
   };
   let sNoise = document.querySelector("#snoise-function").textContent;
@@ -125,10 +125,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebars = document.querySelectorAll(".sidebar");
   const content = document.querySelector(".content");
 
+  // Check system color scheme preference and apply light-mode class if needed
+  if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+    document.body.classList.add("light-mode");
+  }
+
   toggleButton.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
     //toggleSidebar();
   });
+
+  // Hide sidebar by default in portrait orientation
+  if (window.matchMedia("(orientation: portrait)").matches) {
+    sidebars.forEach((sidebar) => {
+      sidebar.classList.add("hidden");
+    });
+    content.style.width = "100%";
+  }
 
   // Function to toggle sidebar visibility
   toggleSidebarButton.addEventListener("click", () => {
