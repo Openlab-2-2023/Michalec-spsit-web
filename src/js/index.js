@@ -156,53 +156,69 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleSidebarButton.classList.toggle("clicked");
   });
 
-  top_pagebar.forEach((link) => {
+    top_pagebar.forEach((link) => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
-
+  
       // Remove 'is-active' class from all top_pagebar links
       top_pagebar.forEach((link) => link.classList.remove("is-activeT"));
-
+  
       // Add 'is-active' class to the clicked top_pagebar link
       this.classList.add("is-activeT");
-
-      // Hide all page sections
-      pages.forEach((page) => (page.style.display = "none"));
-
-      // Show the corresponding page section
+  
+      // Hide all page sections with animation
+      pages.forEach((page) => {
+        page.classList.add("hidden");
+        setTimeout(() => {
+          page.style.display = "none";
+        }, 500); // Match the duration of the CSS transition
+      });
+  
+      // Show the corresponding page section with animation
       const targetElement = document.getElementById(
         this.id.replace("link-", "page-")
       );
-      targetElement.style.display = "flex";
-      targetElement.lastElementChild.firstElementChild.style.display = "unset";
-
+      setTimeout(() => {
+        targetElement.style.display = "flex";
+        targetElement.classList.remove("hidden");
+        targetElement.lastElementChild.firstElementChild.style.display = "unset";
+      }, 500); // Match the duration of the CSS transition
+  
       // Set the first element in the left-sidebar as active
       setFirstElementActive(targetElement);
     });
   });
-
+  
   left_sidebar.forEach((link) => {
     link.addEventListener("click", function (event) {
       if (this.hasAttribute("link")) {
         window.open(this.getAttribute("link"), "_blank"); // Open the link in a new tab
       } else {
         event.preventDefault();
-
+  
         // Remove active class from all links
         left_sidebar.forEach((link) => link.classList.remove("is-active"));
-
+  
         // Add active class to the clicked link
         this.classList.add("is-active");
-
-        // Hide all content sections
-        contents.forEach((content) => (content.style.display = "none"));
-
-        // Show the corresponding content section
+  
+        // Hide all content sections with animation
+        contents.forEach((content) => {
+          content.classList.add("hidden");
+          setTimeout(() => {
+            content.style.display = "none";
+          }, 500); // Match the duration of the CSS transition
+        });
+  
+        // Show the corresponding content section with animation
         const content = document.getElementById(
           this.id.replace("link-", "content-")
         );
         if (content) {
-          content.style.display = "unset";
+          setTimeout(() => {
+            content.style.display = "unset";
+            content.classList.remove("hidden");
+          }, 500); // Match the duration of the CSS transition
         } else {
           console.log("No content found");
         }
@@ -217,11 +233,11 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   
     // Check if firstLink is null
-    if (!firstLink) {
-      toggleSidebarButton.style.display = "none";
+    // if (!firstLink) {
+    //   toggleSidebarButton.style.display = "none";
       
-      return; // Exit the function early
-    }
+    //   return; // Exit the function early
+    // }
   
     // Remove active class from all links
     left_sidebar.forEach((link) => link.classList.remove("is-active"));
