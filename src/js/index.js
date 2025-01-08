@@ -211,14 +211,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Function to set the first element in left-sidebar as active
-  function setFirstElementActive(targetElement) {
+    function setFirstElementActive(targetElement) {
     const firstLink = targetElement.querySelector(
       ".left-sidebar .side-wrapper a"
     );
-
+  
+    // Check if firstLink is null
+    if (!firstLink) {
+      toggleSidebarButton.style.display = "none";
+      
+      return; // Exit the function early
+    }
+  
     // Remove active class from all links
     left_sidebar.forEach((link) => link.classList.remove("is-active"));
-    //left_pagebar[0].classList.add('is-active');
     // Add active class to the first link
     firstLink.classList.add("is-active");
   }

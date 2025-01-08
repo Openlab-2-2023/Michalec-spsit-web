@@ -484,16 +484,20 @@ body.light-mode .video-bg:before {
   display: flex;
   flex-direction: column;
 }
+.main .wrapper .page [id^=page-] .content #bugs button {
+  height: 50px;
+}
 .main .wrapper .page [id^=page-] .content #bugs input {
   font-size: 0.875em;
   width: 470px;
   height: 50px;
-  padding: 0px 15px 0px 15px;
+  padding: 0px 15px;
+  margin: 15px 0px;
   background: transparent;
   outline: none;
   color: var(--theme-color);
   border: solid 1px var(--theme-color);
-  border-bottom: none;
+  border-radius: clamp(10px, 1vw, 20px);
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -504,9 +508,36 @@ body.light-mode .video-bg:before {
   color: var(--theme-color);
   cursor: url("https://mac-cursors.netlify.app/svg/textcursor.svg"), text;
 }
-.main .wrapper .page [id^=page-] .content #bugs input:first-of-type {
-  border-top-left-radius: clamp(10px, 1vw, 20px);
-  border-top-right-radius: clamp(10px, 1vw, 20px);
+.main .wrapper .page [id^=page-] .content #bugs input:valid:not(:-moz-placeholder-shown), .main .wrapper .page [id^=page-] .content #bugs input:invalid:not(:-moz-placeholder-shown) {
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+}
+.main .wrapper .page [id^=page-] .content #bugs input:valid:not(:placeholder-shown), .main .wrapper .page [id^=page-] .content #bugs input:invalid:not(:placeholder-shown) {
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+}
+.main .wrapper .page [id^=page-] .content #bugs input:invalid:not(:-moz-placeholder-shown) {
+  border-color: red;
+  background-image: url("../../img/letter.png");
+}
+.main .wrapper .page [id^=page-] .content #bugs input:invalid:not(:placeholder-shown) {
+  border-color: red;
+  background-image: url("../../img/letter.png");
+}
+.main .wrapper .page [id^=page-] .content #bugs input:valid:not(:-moz-placeholder-shown) {
+  border-color: green;
+  background-image: url("../../img/check.png");
+}
+.main .wrapper .page [id^=page-] .content #bugs input:valid:not(:placeholder-shown) {
+  border-color: green;
+  background-image: url("../../img/check.png");
+}
+.main .wrapper .page [id^=page-] .content #bugs input:invalid ~ button[type=submit] {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: url("https://mac-cursors.netlify.app/svg/poof.svg"), not-allowed !important;
 }
 .main .wrapper .page [id^=page-] .content #bugs textarea {
   width: 470px;
@@ -514,6 +545,7 @@ body.light-mode .video-bg:before {
   height: 110px;
   max-height: 110px;
   padding: 15px;
+  margin: 15px 0px;
   resize: none;
   background: transparent;
   outline: none;
@@ -521,8 +553,7 @@ body.light-mode .video-bg:before {
   font-family: "Lato", sans-serif;
   font-size: 0.875em;
   border: solid 1px var(--theme-color);
-  border-bottom-left-radius: clamp(10px, 1vw, 20px);
-  border-bottom-right-radius: clamp(10px, 1vw, 20px);
+  border-radius: clamp(10px, 1vw, 20px);
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -532,6 +563,37 @@ body.light-mode .video-bg:before {
   background: var(--hover-menu-bg);
   color: var(--theme-color);
   cursor: url("https://mac-cursors.netlify.app/svg/textcursor.svg"), text !important;
+}
+.main .wrapper .page [id^=page-] .content #bugs textarea:valid:not(:-moz-placeholder-shown), .main .wrapper .page [id^=page-] .content #bugs textarea:invalid:not(:-moz-placeholder-shown) {
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+}
+.main .wrapper .page [id^=page-] .content #bugs textarea:valid:not(:placeholder-shown), .main .wrapper .page [id^=page-] .content #bugs textarea:invalid:not(:placeholder-shown) {
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+}
+.main .wrapper .page [id^=page-] .content #bugs textarea:invalid:not(:-moz-placeholder-shown) {
+  border-color: red;
+  background-image: url("../../img/letter.png");
+}
+.main .wrapper .page [id^=page-] .content #bugs textarea:invalid:not(:placeholder-shown) {
+  border-color: red;
+  background-image: url("../../img/letter.png");
+}
+.main .wrapper .page [id^=page-] .content #bugs textarea:valid:not(:-moz-placeholder-shown) {
+  border-color: green;
+  background-image: url("../../img/check.png");
+}
+.main .wrapper .page [id^=page-] .content #bugs textarea:valid:not(:placeholder-shown) {
+  border-color: green;
+  background-image: url("../../img/check.png");
+}
+.main .wrapper .page [id^=page-] .content #bugs textarea:invalid ~ button[type=submit] {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: url("https://mac-cursors.netlify.app/svg/poof.svg"), not-allowed !important;
 }
 .main .wrapper .page [id^=page-] .content::-webkit-scrollbar {
   background-color: var(--theme-bg-color);
@@ -683,6 +745,9 @@ body.light-mode .video-bg:before {
     gap: clamp(10px, 2vw, 20px);
     flex-direction: column;
     align-items: center;
+  }
+  .wrapper #bugs input, .wrapper #bugs textarea {
+    width: 100% !important;
   }
   .sidebar {
     width: -moz-fit-content;

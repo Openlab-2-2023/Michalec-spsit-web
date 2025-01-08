@@ -555,6 +555,7 @@ body.light-mode .video-bg:before {
           }
 
           #bugs {
+            // width: 100%;
             // input::-webkit-input-placeholder,
             // textarea::-webkit-input-placeholder,
             // input::-moz-placeholder,
@@ -620,19 +621,24 @@ body.light-mode .video-bg:before {
               flex-direction: column;
             }
 
+            button {
+              height: 50px;
+            }
+
             input {
-              // font-family: 'Lato', sans-serif;
               font-size: 0.875em;
               width: 470px;
               height: 50px;
-              padding: 0px 15px 0px 15px;
+              padding: 0px 15px;
+              margin: 15px 0px;
 
               background: transparent;
               outline: none;
               color: var(--theme-color);
 
               border: solid 1px var(--theme-color);
-              border-bottom: none;
+              border-radius: clamp(10px, 1vw, 20px);
+              // border-bottom: none;
 
               transition: all 0.3s ease-in-out;
               -webkit-transition: all 0.3s ease-in-out;
@@ -645,9 +651,27 @@ body.light-mode .video-bg:before {
                 cursor: url("https://mac-cursors.netlify.app/svg/textcursor.svg"), text;
               }
 
-              &:first-of-type {
-                border-top-left-radius: clamp(10px, 1vw, 20px);
-                border-top-right-radius: clamp(10px, 1vw, 20px);
+              &:valid:not(:placeholder-shown), 
+              &:invalid:not(:placeholder-shown) {
+                background-size: 25px;
+                background-repeat: no-repeat;
+                background-position: calc(100% - 10px) center;
+              }
+
+              &:invalid:not(:placeholder-shown) {
+                border-color: red;
+                background-image: url("../../img/letter.png");
+              }
+
+              &:valid:not(:placeholder-shown) {
+                border-color: green;
+                background-image: url("../../img/check.png");
+              }
+
+              &:invalid ~ button[type="submit"] {
+                opacity: .6;
+                pointer-events: none;
+                cursor: url("https://mac-cursors.netlify.app/svg/poof.svg"), not-allowed !important;
               }
             }
 
@@ -658,6 +682,7 @@ body.light-mode .video-bg:before {
               height: 110px;
               max-height: 110px;
               padding: 15px;
+              margin: 15px 0px;
               resize: none;
 
               background: transparent;
@@ -668,42 +693,42 @@ body.light-mode .video-bg:before {
               font-size: 0.875em;
 
               border: solid 1px var(--theme-color);
-              border-bottom-left-radius: clamp(10px, 1vw, 20px);
-              border-bottom-right-radius: clamp(10px, 1vw, 20px);
+              border-radius: clamp(10px, 1vw, 20px);
 
               transition: all 0.3s ease-in-out;
               -webkit-transition: all 0.3s ease-in-out;
               -moz-transition: all 0.3s ease-in-out;
               -ms-transition: all 0.3s ease-in-out;
+              
+              &:hover {
+                background: var(--hover-menu-bg);
+                color: var(--theme-color);
+                cursor: url("https://mac-cursors.netlify.app/svg/textcursor.svg"), text !important;
+              }
+
+              &:valid:not(:placeholder-shown), 
+              &:invalid:not(:placeholder-shown) {
+                background-size: 25px;
+                background-repeat: no-repeat;
+                background-position: calc(100% - 10px) center;
+              }
+
+              &:invalid:not(:placeholder-shown) {
+                border-color: red;
+                background-image: url("../../img/letter.png");
+              }
+
+              &:valid:not(:placeholder-shown) {
+                border-color: green;
+                background-image: url("../../img/check.png");
+              }
+
+              &:invalid ~ button[type="submit"] {
+                opacity: .6;
+                pointer-events: none;
+                cursor: url("https://mac-cursors.netlify.app/svg/poof.svg"), not-allowed !important;
+              }
             }
-
-            textarea:hover {
-              background: var(--hover-menu-bg);
-              color: var(--theme-color);
-              cursor: url("https://mac-cursors.netlify.app/svg/textcursor.svg"), text !important;
-            }
-
-            // #submit {
-            //   // width: 502px;
-
-            //   padding: 0;
-            //   margin: -5px 0px 0px 0px;
-
-            //   // font-family: 'Lato', sans-serif;
-            //   font-size: 0.875em;
-            //   color: var(--theme-color);
-
-            //   outline: none;
-            //   cursor: pointer;
-
-            //   border: solid 1px var(--theme-color);
-            //   border-top: none;
-            // }
-
-            // #submit:hover {
-            //   color: #e2dedb;
-            //   cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
-            // }
           }
 
           // total width
@@ -901,6 +926,12 @@ body.light-mode .video-bg:before {
       gap: clamp(10px, 2vw, 20px);
       flex-direction: column;
       align-items: center;
+    }
+
+    #bugs {
+      input, textarea {
+        width: 100% !important;
+      }
     }
   }
 
