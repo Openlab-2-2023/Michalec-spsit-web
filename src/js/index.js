@@ -244,4 +244,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add active class to the first link
     firstLink.classList.add("is-active");
   }
+
+  document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Clear the inputs
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('description').value = '';
+
+    // Show success popup
+    alert('Úspešne odoslané!');
+  });
 });
