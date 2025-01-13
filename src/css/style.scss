@@ -1,12 +1,5 @@
 @import url("hover.css/hover.css");
 
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://fonts.gstatic.com/s/poppins/v15/pxiEyp8kv8JHgFVrJJnecmNE.woff2') format('woff2');
-}
-
 :root {
   color-scheme: light dark; // https://www.youtube.com/watch?v=XtTcWT8XGug
   --theme-bg-color: light-dark(rgba(255 255 255 / 31%), rgba(16 18 27 / 40%));
@@ -14,8 +7,6 @@
   --content-button-color: light-dark(#5cb0ff, #3a6df0);
   --content-button-hover: light-dark(#6891fa, #1e59f1);
   --body-font: "Saira", sans-serif;
-  //--body-font: "San Francisco", sans-serif;
-  //--body-font: -apple-system, BlinkMacSystemFont, sans-serif;
   --theme-color: light-dark(#3c3a3a, #f9fafb);
   --hover-menu-bg: light-dark(rgba(255 255 255 / 35%), rgba(12 15 25 / 30%));
   --inactive-color: light-dark(#333333, rgba(146, 152, 179, 0.78));
@@ -27,8 +18,12 @@
   --card-shadow-before: light-dark(rgba(255, 255, 255, 0.031), rgba(0, 0, 0, 0.031));
   --card-border-hover: light-dark(rgba(255, 255, 255, 0.27), rgba(0, 0, 0, 0.27));
   --card-shadow-hover: light-dark(rgba(255, 255, 255, 0.67), rgba(0, 0, 0, 0.67));
-
-  --cursor: url("../cursor/Normal.png"), normal;
+  
+  // https://mac-cursors.netlify.app/
+  --cursor-d: url("https://mac-cursors.netlify.app/svg/default.svg");
+  --cursor-h: url('https://mac-cursors.netlify.app/svg/handpointing.svg');
+  --cursor-t: url("https://mac-cursors.netlify.app/svg/textcursor.svg");
+  --cursor-i: url("https://mac-cursors.netlify.app/svg/poof.svg");
 }
 
 .light-mode {
@@ -47,14 +42,12 @@
   --card-shadow-before: rgba(255, 255, 255, 0.31);
   --card-border-hover: rgba(255, 255, 255, 0.27);
   --card-shadow-hover: rgba(255, 255, 255, 0.67);
-  --cursor: url("../cursor/Normal.png");
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  // cursor: url("../cursor/Normal.svg"), pointer !important;
 }
 
 html {
@@ -73,7 +66,7 @@ body {
   flex-direction: column;
   margin: 0;
   height: 100vh;
-  cursor: url('https://mac-cursors.netlify.app/svg/default.svg'), default !important; // https://mac-cursors.netlify.app/
+  cursor: var(--cursor-d), default !important;
   transition: all 1s ease;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
@@ -121,7 +114,7 @@ canvas {
   }
 
   &:hover {
-    cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
+    cursor: var(--cursor-h), pointer !important;
   }
 }
 
@@ -223,7 +216,7 @@ body.light-mode .video-bg:before {
             // background-color: var(--hover-menu-bg);
             border-bottom: 2px solid var(--theme-color);
             border-radius: 0;
-            cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
+            cursor: var(--cursor-h), pointer !important;
           }
         }
 
@@ -256,7 +249,7 @@ body.light-mode .video-bg:before {
         }
 
         &:hover {
-          cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
+          cursor: var(--cursor-h), pointer !important;
         }
 
         svg {
@@ -319,7 +312,7 @@ body.light-mode .video-bg:before {
 
             &:hover {
               text-decoration: underline;
-              cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
+              cursor: var(--cursor-h), pointer !important;
             }
           }
 
@@ -563,67 +556,7 @@ body.light-mode .video-bg:before {
           }
 
           #bugs {
-            // width: 100%;
-            // input::-webkit-input-placeholder,
-            // textarea::-webkit-input-placeholder,
-            // input::-moz-placeholder,
-            // textarea::-moz-placeholder {
-            //   color: var(--inactive-color);
-            //   font-size: 0.875em;
-            // }
-
-            // input:focus::-webkit-input-placeholder,
-            // textarea:focus::-webkit-input-placeholder,
-            // input:focus::-moz-placeholder,
-            // textarea:focus::-moz-placeholder {
-            //   color: var(--theme-color);
-            // }
-
-            // input::placeholder,
-            // textarea::placeholder,
-            // input::-ms-placeholder,
-            // textarea::-ms-placeholder {
-            //   color: var(--theme-color);
-            //   font-size: 0.875em;
-            // }
-
-            // input:focus::placeholder,
-            // textarea::focus:placeholder,
-            // input:focus::-ms-placeholder,
-            // textarea:focus::-ms-placeholder {
-            //   color: var(--theme-color);
-            // }
-
-            // /* on hover placeholder */
-
-            // input:hover::-webkit-input-placeholder,
-            // textarea:hover::-webkit-input-placeholder,
-            // input:hover::-moz-placeholder,
-            // textarea:hover::-moz-placeholder {
-            //   color: var(--hover-menu-bg);
-            //   font-size: 0.875em;
-            // }
-
-            // input:hover:focus::-webkit-input-placeholder,
-            // textarea:hover:focus::-webkit-input-placeholder,
-            // input:hover:focus::-moz-placeholder,
-            // textarea:hover:focus::-moz-placeholder {
-            //   color: var(--hover-menu-bg);
-            // }
-
-            // input:hover::placeholder,
-            // textarea:hover::placeholder {
-            //   color: var(--theme-bg-color);
-            //   font-size: 0.875em;
-            // }
-
-            // input:hover:focus::placeholder,
-            // textarea:hover:focus::placeholder,
-            // input:hover:focus::-ms-placeholder,
-            // textarea:hover::focus:-ms-placeholder {
-            //   color: var(--theme-color);
-            // }
-
+            
             #form {
               display: flex;
               flex-direction: column;
@@ -656,7 +589,7 @@ body.light-mode .video-bg:before {
               &:hover {
                 background: var(--hover-menu-bg);
                 color: var(--theme-color);
-                cursor: url("https://mac-cursors.netlify.app/svg/textcursor.svg"), text;
+                cursor: var(--cursor-t), text;
               }
 
               &:valid:not(:placeholder-shown), 
@@ -679,7 +612,7 @@ body.light-mode .video-bg:before {
               &:invalid ~ button[type="submit"] {
                 opacity: .6;
                 pointer-events: none;
-                cursor: url("https://mac-cursors.netlify.app/svg/poof.svg"), not-allowed !important;
+                cursor: var(--cursor-i), default !important;
               }
             }
 
@@ -711,7 +644,7 @@ body.light-mode .video-bg:before {
               &:hover {
                 background: var(--hover-menu-bg);
                 color: var(--theme-color);
-                cursor: url("https://mac-cursors.netlify.app/svg/textcursor.svg"), text !important;
+                cursor: var(--cursor-t), text !important;
               }
 
               &:valid:not(:placeholder-shown), 
@@ -734,7 +667,7 @@ body.light-mode .video-bg:before {
               &:invalid ~ button[type="submit"] {
                 opacity: .6;
                 pointer-events: none;
-                cursor: url("https://mac-cursors.netlify.app/svg/poof.svg"), not-allowed !important;
+                cursor: var(--cursor-i), default !important;
               }
             }
           }
@@ -821,7 +754,7 @@ body.light-mode .video-bg:before {
         background-color: var(--hover-menu-bg);
         // border-bottom: 2px solid var(--theme-color);
         // border-radius: 0px;
-        cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
+        cursor: var(--cursor-h), pointer !important;
       }
     }
 
@@ -853,7 +786,7 @@ body.light-mode .video-bg:before {
 
   &:hover {
     background-color: var(--content-button-hover) !important;
-    cursor: url('https://mac-cursors.netlify.app/svg/handpointing.svg'), pointer !important;
+    cursor: var(--cursor-h), pointer !important;
   }
 }
 

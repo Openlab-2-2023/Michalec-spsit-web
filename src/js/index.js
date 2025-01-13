@@ -230,15 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function setFirstElementActive(targetElement) {
     const firstLink = targetElement.querySelector(
       ".left-sidebar .side-wrapper a"
-    );
-  
-    // Check if firstLink is null
-    // if (!firstLink) {
-    //   toggleSidebarButton.style.display = "none";
-      
-    //   return; // Exit the function early
-    // }
-  
+    );  
     // Remove active class from all links
     left_sidebar.forEach((link) => link.classList.remove("is-active"));
     // Add active class to the first link

@@ -1,10 +1,4 @@
 @import url("hover.css/hover.css");
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  src: url("https://fonts.gstatic.com/s/poppins/v15/pxiEyp8kv8JHgFVrJJnecmNE.woff2") format("woff2");
-}
 :root {
   color-scheme: light dark;
   --theme-bg-color: light-dark(rgba(255 255 255 / 31%), rgba(16 18 27 / 40%));
@@ -23,7 +17,10 @@
   --card-shadow-before: light-dark(rgba(255, 255, 255, 0.031), rgba(0, 0, 0, 0.031));
   --card-border-hover: light-dark(rgba(255, 255, 255, 0.27), rgba(0, 0, 0, 0.27));
   --card-shadow-hover: light-dark(rgba(255, 255, 255, 0.67), rgba(0, 0, 0, 0.67));
-  --cursor: url("../cursor/Normal.png"), normal;
+  --cursor-d: url("https://mac-cursors.netlify.app/svg/default.svg");
+  --cursor-h: url("https://mac-cursors.netlify.app/svg/handpointing.svg");
+  --cursor-t: url("https://mac-cursors.netlify.app/svg/textcursor.svg");
+  --cursor-i: url("https://mac-cursors.netlify.app/svg/poof.svg");
 }
 
 .light-mode {
@@ -42,7 +39,6 @@
   --card-shadow-before: rgba(255, 255, 255, 0.31);
   --card-border-hover: rgba(255, 255, 255, 0.27);
   --card-shadow-hover: rgba(255, 255, 255, 0.67);
-  --cursor: url("../cursor/Normal.png");
 }
 
 *,
@@ -66,7 +62,7 @@ body {
   flex-direction: column;
   margin: 0;
   height: 100vh;
-  cursor: url("https://mac-cursors.netlify.app/svg/default.svg"), default !important;
+  cursor: var(--cursor-d), default !important;
   transition: all 1s ease;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
@@ -113,7 +109,7 @@ canvas {
   transition: 0.5s;
 }
 .dark-light:hover {
-  cursor: url("https://mac-cursors.netlify.app/svg/handpointing.svg"), pointer !important;
+  cursor: var(--cursor-h), pointer !important;
 }
 
 .light-mode .dark-light svg {
@@ -211,7 +207,7 @@ body.light-mode .video-bg:before {
   color: var(--theme-color);
   border-bottom: 2px solid var(--theme-color);
   border-radius: 0;
-  cursor: url("https://mac-cursors.netlify.app/svg/handpointing.svg"), pointer !important;
+  cursor: var(--cursor-h), pointer !important;
 }
 .main .wrapper .pagebar .top-pagebar svg {
   width: clamp(12px, 1.5vw, 16px);
@@ -239,7 +235,7 @@ body.light-mode .video-bg:before {
   transition: transform 0.3s ease-in-out;
 }
 .main .wrapper .page #toggleSidebar:hover {
-  cursor: url("https://mac-cursors.netlify.app/svg/handpointing.svg"), pointer !important;
+  cursor: var(--cursor-h), pointer !important;
 }
 .main .wrapper .page #toggleSidebar svg {
   color: var(--theme-color);
@@ -289,7 +285,7 @@ body.light-mode .video-bg:before {
 }
 .main .wrapper .page [id^=page-] .content a:hover {
   text-decoration: underline;
-  cursor: url("https://mac-cursors.netlify.app/svg/handpointing.svg"), pointer !important;
+  cursor: var(--cursor-h), pointer !important;
 }
 .main .wrapper .page [id^=page-] .content .grid {
   display: grid;
@@ -513,7 +509,7 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content #bugs input:hover {
   background: var(--hover-menu-bg);
   color: var(--theme-color);
-  cursor: url("https://mac-cursors.netlify.app/svg/textcursor.svg"), text;
+  cursor: var(--cursor-t), text;
 }
 .main .wrapper .page [id^=page-] .content #bugs input:valid:not(:-moz-placeholder-shown), .main .wrapper .page [id^=page-] .content #bugs input:invalid:not(:-moz-placeholder-shown) {
   background-size: 25px;
@@ -544,7 +540,7 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content #bugs input:invalid ~ button[type=submit] {
   opacity: 0.6;
   pointer-events: none;
-  cursor: url("https://mac-cursors.netlify.app/svg/poof.svg"), not-allowed !important;
+  cursor: var(--cursor-i), default !important;
 }
 .main .wrapper .page [id^=page-] .content #bugs textarea {
   width: 470px;
@@ -569,7 +565,7 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content #bugs textarea:hover {
   background: var(--hover-menu-bg);
   color: var(--theme-color);
-  cursor: url("https://mac-cursors.netlify.app/svg/textcursor.svg"), text !important;
+  cursor: var(--cursor-t), text !important;
 }
 .main .wrapper .page [id^=page-] .content #bugs textarea:valid:not(:-moz-placeholder-shown), .main .wrapper .page [id^=page-] .content #bugs textarea:invalid:not(:-moz-placeholder-shown) {
   background-size: 25px;
@@ -600,7 +596,7 @@ body.light-mode .video-bg:before {
 .main .wrapper .page [id^=page-] .content #bugs textarea:invalid ~ button[type=submit] {
   opacity: 0.6;
   pointer-events: none;
-  cursor: url("https://mac-cursors.netlify.app/svg/poof.svg"), not-allowed !important;
+  cursor: var(--cursor-i), default !important;
 }
 .main .wrapper .page [id^=page-] .content::-webkit-scrollbar {
   background-color: var(--theme-bg-color);
@@ -663,7 +659,7 @@ body.light-mode .video-bg:before {
 .sidebar .left-sidebar a.is-active, .sidebar .left-sidebar a:hover {
   color: var(--theme-color);
   background-color: var(--hover-menu-bg);
-  cursor: url("https://mac-cursors.netlify.app/svg/handpointing.svg"), pointer !important;
+  cursor: var(--cursor-h), pointer !important;
 }
 .sidebar .left-sidebar svg {
   width: clamp(12px, 1.5vw, 16px);
@@ -689,7 +685,7 @@ body.light-mode .video-bg:before {
 }
 .content-button:hover {
   background-color: var(--content-button-hover) !important;
-  cursor: url("https://mac-cursors.netlify.app/svg/handpointing.svg"), pointer !important;
+  cursor: var(--cursor-h), pointer !important;
 }
 
 @media (orientation: portrait) {
