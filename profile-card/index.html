@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .container:hover {
+            transform: rotate3d(1, 1, 1, -33deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-container {
+            width: 300px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 5px;
+            transition: 1s all ease;
+
+        }
+
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("spear-phishing_b.png") no-repeat center center/cover;
+            z-index: -1;
+            opacity: 1;
+            transition: all .5s ease-in;
+        }
+
+        .profile-container:hover:before {
+            opacity: 0;
+            transition: all .5s ease;
+        }
+
+        .profile-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .profile-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #2371ae 0%, #47d4bb 100%);
+            transform: skew(30deg) translateX(125%);
+            opacity: 0.9;
+            transition: all 0.6s ease;
+        }
+
+        .profile-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #2371ae 0%, #47d4bb 100%);
+            transform: skew(30deg) translateX(-125%);
+            opacity: 0.9;
+            transition: all 0.6s ease;
+        }
+
+        .profile-container:hover .profile-wrapper::after {
+            transform: skew(30deg) translateX(125%);
+            background: linear-gradient(to right, #47d4bb 0%, #2371ae 100%);
+
+        }
+
+        .profile-container:hover .profile-wrapper::before {
+            transform: skew(30deg) translateX(-125%);
+            background: linear-gradient(to right, #47d4bb 0%, #2371ae 100%);
+        }
+
+        .profile-container:hover .profile-wrapper::before ~ img {
+            color: rebeccapurple;
+        }
+
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem 10px;
+            position: relative;
+            opacity: 0;
+            transition: all 0.3s ease;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .profile-container:hover .profile-card {
+            opacity: 1;
+            transition: all 0.6s ease;
+            transition-delay: 0.2s;
+        }
+
+        .profile-card .fav-icon {
+            color: #ec0e0e;
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 21px;
+            cursor: pointer;
+        }
+
+        .profile-card img {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 1rem 0;
+            border: 2px solid transparent;
+            background-image: linear-gradient(white, white),
+            linear-gradient(to right, green, gold);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            /* border: 2px solid #1999; */
+            position: relative;
+        }
+
+        .profile-card h2 {
+            line-height: 1.2;
+            color: #222;
+        }
+
+        .profile-card h4 {
+            line-height: 1.5;
+            color: #444;
+        }
+
+        .profile-card p {
+            line-height: 1.2;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .profile-card .icons {
+            display: flex;
+            color: #333;
+            width: 90%;
+            justify-content: space-evenly;
+            font-size: 1.4rem;
+            margin: 5px 0;
+        }
+
+        .profile-card .icons i:hover {
+            background-image: linear-gradient(to right, #47d4bb 0%, #2371ae 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .profile-card a {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #FFFFFF;
+            padding: 8px 20px;
+            margin-top: 1rem;
+            background: #2371ae;
+            border-radius: 50px;
+            background: linear-gradient(to right, #47d4bb 0%, #2371ae 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="profile-container">
+
+            <div class="profile-wrapper">
+
+                <div class="profile-card">
+                    <div class="fav-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <img src="spear-phishing_b.png" alt="profile pics">
+
+                    <h2>Martin</h2>
+                    <h4>Student</h4>
+
+                    <p>Lorem ipsum dolor sit amet conse adipisicing elit. Odit omnis odio tenetur eveniet soluta numquam
+                        deleniti sequi dolore nostrum sit.</p>
+
+                    <div class="icons">
+                        <i class="fab fa-reddit"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+
+                    <a href="#">View Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
